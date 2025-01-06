@@ -1,0 +1,104 @@
+* {
+    font-family:Verdana, Geneva, Tahoma, sans-serif;
+    /* font-size: 1rem; */
+}
+.nav {
+    display: flex;
+    align-items: center;
+    justify-content: space-evenly;
+    gap: 2vw;
+    font-size: 1.5rem;
+    padding: 0 2rem;
+    background-color: rgba(240, 240, 240, 0.8);
+    border-radius: 8px;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+    height: clamp(3rem, 5vh, 5rem);
+    
+    /* Fix the width/margin issue */
+    width: 70%;  /* Instead of 100% - accounts for the margins */
+    margin: 0 auto;  /* Centers the nav and handles the margins */
+}
+
+.nav ul {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-evenly;
+    list-style: none;
+    gap: 5rem;
+    padding: 0; /* Add this to remove default padding */
+    margin: 0; /* Add this to remove default margin */
+    /* margin-left: 30%;x */
+    width: 100%; /* If you want the items to use full width */
+}
+
+.nav a {
+    text-decoration: none;
+    color: inherit;
+    padding: 0.5rem 1rem;
+}
+.intro { 
+    font-size: 1.65rem;
+}
+
+.highlight {
+    background: radial-gradient(
+        circle at center,    /* or 'circle at 50%' */
+        #5989d1, 
+        #075ee0, 
+        #c887e8,   
+        #ca02ed     
+    );
+    -webkit-text-fill-color: transparent;
+    -webkit-background-clip: text;
+    background-clip: text;
+    background-size: 150% 150%;  /* For animation */
+    animation: pulse 5s ease infinite;
+}
+
+@keyframes pulse {
+    0% {
+        background-size: 100% 100%;
+    }
+    50% {
+        background-size: 150% 150%;
+    }
+    100% {
+        background-size: 100% 100%;
+    }
+}
+
+#skills {
+    font-size: 1.65rem;
+}
+
+#skills h3, h4 {
+    background: linear-gradient(
+        270deg,
+        #5989d1,
+        #075ee0,
+        #c887e8,
+        #ca02ed,
+        #5989d1    /* Repeat the first color */
+    );
+    -webkit-text-fill-color: transparent;
+    -webkit-background-clip: text;
+    background-clip: text;
+    background-size: 400% auto;  /* Increased to 400% */
+    animation: gradientMove 8s linear infinite;
+}
+
+@keyframes gradientMove {
+    0% {
+        background-position: 0% center;
+    }
+    100% {
+        background-position: -300% center;  /* Changed to -300% */
+    }
+}
+
+.skill-category ul{ 
+    display: flex;
+    flex-direction: row;
+    gap: 2vw;
+    list-style: none;
+}

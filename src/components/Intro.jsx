@@ -1,7 +1,7 @@
 import React from 'react';
 
 function Intro() {
-    return (<div>
+    return (<div className= "intro">
         <p>
             Hello! I'm <span className="highlight">Raghumani Mehta</span>, a Computer Science student at UBC 
             with a passion for both software development and artificial intelligence. My projects range from 
