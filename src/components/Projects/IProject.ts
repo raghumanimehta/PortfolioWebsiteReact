@@ -1,4 +1,4 @@
-interface Project {
+export interface Project {
     id: string;
     title: string;
     duration: string;
@@ -7,12 +7,12 @@ interface Project {
     links: ProjectLinks;
 }
 
-interface ProjectLinks {
+export interface ProjectLinks {
     github: string;
     demo: string;
 }
 
-const projects: Project[] = [
+export const projects: Project[] = [
     {
       id: "chat-app",
       title: "Chat App",
@@ -81,4 +81,4 @@ const projects: Project[] = [
     }
   ];
   
-  export default projects;
+  // export { projects };
