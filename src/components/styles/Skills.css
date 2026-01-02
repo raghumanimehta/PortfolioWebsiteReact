@@ -1,0 +1,85 @@
+.skills-section {
+    max-width: 75rem;
+    margin: 3rem auto;
+    padding: 0 1.5rem;
+}
+
+.skills-section h2 {
+    font-size: 2rem;
+    margin-bottom: 2rem;
+    color: #2d3748;
+}
+
+/* Stack categories vertically (one card per row) */
+.skills-container {
+    display: flex;
+    flex-direction: column;
+    gap: 1.5rem;
+}
+
+.skill-category {
+    background: rgba(255, 255, 255, 0.8);
+    backdrop-filter: blur(10px);
+    padding: 1.5rem;
+    border-radius: 16px;
+    box-shadow: 0 8px 28px rgba(0, 0, 0, 0.06);
+}
+
+.skill-category h3 {
+    margin: 0 0 1rem 0;
+    font-size: 1.2rem;
+    color: #2d3748;
+}
+
+/* Inside each category, lay out list items in 4 columns */
+.skills-list {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+    display: grid;
+    grid-template-columns: repeat(4, minmax(0, 1fr));
+    gap: 0.5rem 1rem; /* row-gap col-gap */
+    align-items: start;
+}
+
+.skills-list li {
+    color: #4a5568;
+    font-size: 1rem;
+    padding-left: 1.5rem;
+    position: relative;
+}
+
+/* keep decorative marker but align for multi-column grid */
+.skills-list li::before {
+    content: '▸';
+    position: absolute;
+    left: 0;
+    color: #667eea;
+    font-weight: bold;
+}
+
+/* Tablet: 2 columns inside each category */
+@media (max-width: 1024px) {
+    .skills-list {
+        grid-template-columns: repeat(2, minmax(0, 1fr));
+    }
+}
+
+/* Mobile: 1 column inside each category */
+@media (max-width: 768px) {
+    .skills-list {
+        grid-template-columns: 1fr;
+    }
+
+    .skills-section {
+        padding: 0 1rem;
+    }
+
+    .skills-section h2 {
+        font-size: 1.5rem;
+    }
+
+    .skills-container {
+        gap: 1.25rem;
+    }
+}
