@@ -1,5 +1,4 @@
 import React from 'react';
-import { BrowserRouter as Router, Routes, Route } from 'react-router-dom';
 import Navbar from './components/Navbar';
 import Intro from './components/Intro';
 import Skills from './components/Skills';
@@ -8,17 +7,23 @@ import Experience from './components/Experience';
 
 function App() {
     return (
-        <Router>
+        <>
             <Navbar />
-            <div className="navbar-content">
-                <Routes>
-                    <Route path="/" element={<Intro />} />
-                    <Route path="/experience" element={<Experience />} />
-                    <Route path="/skills" element={<Skills />} />
-                    <Route path="/projects" element={<TemplateProjects />} />
-                </Routes>
+            <div className="content">
+                <section id="home">
+                    <Intro />
+                </section>
+                <section id="skills">
+                    <Skills />
+                </section>
+                <section id="experience">
+                    <Experience />
+                </section>
+                {/* <section id="projects">
+                    <TemplateProjects />
+                </section> */}
             </div>
-        </Router>
+        </>
     );
 }
 

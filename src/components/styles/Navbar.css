@@ -121,11 +121,12 @@
 }
 
 .navbar-content {
-    padding-top: 80px;
+    padding-top: var(--navbar-offset); /* was hard-coded 80px */
 }
 
 /* Mobile Responsiveness */
 @media (max-width: 768px) {
+    :root { --navbar-offset: 64px; } /* smaller navbar on mobile */
     .navbar {
         padding: 1rem;
     }

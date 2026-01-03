@@ -1,66 +1,112 @@
 import React, { useState, useEffect } from "react";
-import { Link, useLocation } from "react-router-dom";
 import "./styles/Navbar.css";
 
 function Navbar() {
     const [scrolled, setScrolled] = useState(false);
-    const location = useLocation();
+    const [activeSection, setActiveSection] = useState("home");
 
     useEffect(() => {
         const handleScroll = () => {
             setScrolled(window.scrollY > 50);
+
+            // Determine active section based on scroll position
+            const sections = ["home", "skills", "experience", "projects"];
+            for (let section of sections) {
+                const element = document.getElementById(section);
+                if (element) {
+                    const rect = element.getBoundingClientRect();
+                    if (rect.top <= 100) {
+                        setActiveSection(section);
+                    }
+                }
+            }
         };
         window.addEventListener("scroll", handleScroll);
         return () => window.removeEventListener("scroll", handleScroll);
     }, []);
 
+    const scrollToSection = (sectionId) => {
+        const element = document.getElementById(sectionId);
+        if (element) {
+            element.scrollIntoView({ behavior: "smooth" });
+        }
+    };
+
     return (
         <nav className={`navbar ${scrolled ? "scrolled" : ""}`}>
             <div className="navbar-container">
-                <Link to="/" className="navbar-logo">
+                <button
+                    onClick={() => scrollToSection("home")}
+                    className="navbar-logo"
+                    style={{
+                        background: "none",
+                        border: "none",
+                        cursor: "pointer",
+                    }}
+                >
                     <span className="highlight">Raghumani</span>
                     <span className="logo-subtitle">Mehta</span>
-                </Link>
+                </button>
                 <ul className="nav-menu">
                     <li className="nav-item">
-                        <Link
-                            to="/"
+                        <button
+                            onClick={() => scrollToSection("home")}
                             className={`nav-link ${
-                                location.pathname === "/" ? "active" : ""
+                                activeSection === "home" ? "active" : ""
                             }`}
+                            style={{
+                                background: "none",
+                                border: "none",
+                                cursor: "pointer",
+                            }}
                         >
                             Home
-                        </Link>
+                        </button>
                     </li>
                     <li className="nav-item">
-                        <Link
-                            to="/skills"
+                        <button
+                            onClick={() => scrollToSection("skills")}
                             className={`nav-link ${
-                                location.pathname === "/skills" ? "active" : ""
+                                activeSection === "skills" ? "active" : ""
                             }`}
+                            style={{
+                                background: "none",
+                                border: "none",
+                                cursor: "pointer",
+                            }}
                         >
                             Skills
-                        </Link>
+                        </button>
                     </li>
                     <li className="nav-item">
-                        <Link
-                            to="/projects"
+                        <button
+                            onClick={() => scrollToSection("projects")}
                             className={`nav-link ${
-                                location.pathname === "/projects" ? "active" : ""
+                                activeSection === "projects" ? "active" : ""
                             }`}
+                            style={{
+                                background: "none",
+                                border: "none",
+                                cursor: "pointer",
+                            }}
                         >
                             Projects
-                        </Link>
+                        </button>
                     </li>
                     <li className="nav-item">
-                        <Link
-                            to="/experience"
+                        <button
+                            onClick={() => scrollToSection("experience")}
                             className={`nav-link ${
-                                location.pathname === "/experience" ? "active" : ""
+                                activeSection === "experience" ? "active" : ""
                             }`}
+                            style={{
+                                background: "none",
+                                border: "none",
+                                cursor: "pointer",
+                            }}
                         >
                             Experience
-                        </Link>
+                        </button>
                     </li>
                     <li className="nav-item">
                         <a

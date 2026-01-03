@@ -1,9 +1,14 @@
 import React from 'react';
 import "./styles/Intro.css"
 import "../../style.css"
+import profilePic from '../assets/profile-picture.jpg';
 
 function Intro() {
     return (
+        <div className='outer-container'>
+        <div className='dp-container'> 
+                <img src={profilePic} alt="Raghumani Mehta" /> 
+        </div>
         <div className="intro">
             <h1>Hi, I'm <span className="highlight">Raghumani Mehta</span>.</h1> 
             <h3>
@@ -33,6 +38,7 @@ function Intro() {
                 As a <strong>Teaching Assistant</strong> for networking and software engineering courses, I help students bridge 
                 theory and practice—mentoring them through everything from socket programming to full-stack architecture.
             </p>
+        </div>
         </div>
     );
 }

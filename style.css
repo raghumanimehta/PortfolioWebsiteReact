@@ -3,6 +3,10 @@
     /* font-size: 1rem; */
 }
 
+html {
+    scroll-behavior: smooth;
+}
+
 .nav {
     display: flex;
     align-items: center;
@@ -34,6 +38,34 @@
     text-decoration: none;
     color: inherit;
     padding: 0.5rem 1rem;
+}
+
+:root {
+    --navbar-offset: 80px; /* adjust if navbar height changes */
+}
+
+/* Give each section near-full viewport height and center content */
+.content {
+    scroll-snap-type: y mandatory;
+}
+
+/* sections take viewport height minus navbar offset */
+.content > section {
+    min-height: calc(100vh - var(--navbar-offset));
+    display: flex;
+    align-items: center;       /* vertical centering */
+    padding: 3rem 1.5rem;      /* space inside the section */
+    box-sizing: border-box;
+    scroll-snap-align: start;
+}
+
+/* slightly reduce offset on small screens */
+@media (max-width: 768px) {
+    :root { --navbar-offset: 64px; }
+    .content > section {
+        padding: 2rem 1rem;
+        min-height: calc(100vh - var(--navbar-offset));
+    }
 }
 
 .highlight {

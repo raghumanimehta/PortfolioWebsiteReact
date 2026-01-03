@@ -1,13 +1,36 @@
+:root {
+    --raidus: 20px;
+}
+
 .intro { 
-    font-size: 1.65rem;
+    font-size: 1.5rem;
     max-width: 75rem;
     margin: 2rem auto;
     padding: 3rem;
     background: rgba(255, 255, 255, 0.8);
     backdrop-filter: blur(10px);
-    border-radius: 20px;
+    border-radius: var(--raidus);
     box-shadow: 0 8px 32px rgba(0, 0, 0, 0.1);
 }
+
+.outer-container {
+    margin-inline: 5px;
+    display: grid;
+    grid-template-columns: auto 1fr;
+    gap: 2rem;
+    align-items: center; /* centers image vertically with text */
+}
+
+.dp-container {
+    width: 36rem;
+    height: 45rem;
+    border-radius: var(--raidus);
+    background-image: url('../../assets/profile-picture.jpg');
+    background-size: cover;      /* fills and crops */
+    background-position: center; /* adjust to control crop */
+}
+
+.dp-container img { display: none; }
 
 .intro h1 {
     font-size: 2.5rem;
@@ -115,5 +138,14 @@
     
     .intro h3 {
         font-size: 1.1rem;
+    }
+
+    .outer-container {
+        grid-template-columns: 1fr; /* stack on mobile */
+    }
+    
+    .dp-container img {
+        width: 8rem; /* was 4.5rem */
+        height: 8rem;
     }
 }

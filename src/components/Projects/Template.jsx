@@ -9,7 +9,18 @@ export default function TemplateProjects() {
                     <h2>{project.duration}</h2>
                     <p>{project.technologies}</p>
                     <p>{project.description}</p>
-                    <p>{project.links}</p>
+                    <div className="project-links">
+                        {project.links.github && (
+                            <a href={project.links.github} target="_blank" rel="noopener noreferrer">
+                                GitHub
+                            </a>
+                        )}
+                        {project.links.demo && (
+                            <a href={project.links.demo} target="_blank" rel="noopener noreferrer">
+                                Demo
+                            </a>
+                        )}
+                    </div>
                 </div>
             ))}
         </div>
