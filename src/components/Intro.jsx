@@ -7,8 +7,8 @@ function Intro() {
         <div className="intro">
             <h1>Hi, I'm <span className="highlight">Raghumani Mehta</span>.</h1> 
             <h3>
-                <span className="role-highlight">Systems Developer</span> | 
-                <span className="role-highlight">Pathfinding Lead</span> @ <a href="https://ubcsailbot.org/" target="_blank" rel="noopener noreferrer">UBC Sailbot</a> |
+                <span>Systems Developer</span> | 
+                <span>Pathfinding Lead</span> @ <a href="https://ubcsailbot.org/" target="_blank" rel="noopener noreferrer">UBC Sailbot</a> |
                 4th Year CS + Physics @ <a href="https://www.ubc.ca/" target="_blank" rel="noopener noreferrer">UBC</a>
             </h3> 
 
