@@ -77,6 +77,21 @@ function Navbar() {
                         >
                             Skills
                         </button>
+                    </li> 
+                    <li className="nav-item">
+                        <button
+                            onClick={() => scrollToSection("experience")}
+                            className={`nav-link ${
+                                activeSection === "experience" ? "active" : ""
+                            }`}
+                            style={{
+                                background: "none",
+                                border: "none",
+                                cursor: "pointer",
+                            }}
+                        >
+                            Experience
+                        </button>
                     </li>
                     <li className="nav-item">
                         <button
@@ -94,23 +109,8 @@ function Navbar() {
                         </button>
                     </li>
                     <li className="nav-item">
-                        <button
-                            onClick={() => scrollToSection("experience")}
-                            className={`nav-link ${
-                                activeSection === "experience" ? "active" : ""
-                            }`}
-                            style={{
-                                background: "none",
-                                border: "none",
-                                cursor: "pointer",
-                            }}
-                        >
-                            Experience
-                        </button>
-                    </li>
-                    <li className="nav-item">
                         <a
-                            href="mailto:your.email@example.com"
+                            href="mailto:raghumani2003@outlook.com"
                             className="nav-link contact-btn"
                         >
                             Contact

@@ -125,6 +125,13 @@
 }
 
 /* Mobile Responsiveness */
+@media (max-width: 1200px) {
+    .dp-container {
+        width: 28rem;
+        height: 35rem;
+    }
+}
+
 @media (max-width: 768px) {
     .intro {
         padding: 2rem 1.5rem;
