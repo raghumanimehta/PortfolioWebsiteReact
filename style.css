@@ -1,3 +1,8 @@
+:root {
+    --intro-h1-size: 2.5rem;
+    --navbar-offset: 80px; /* adjust if navbar height changes */
+}
+
 * {
     font-family:Verdana, Geneva, Tahoma, sans-serif;
     /* font-size: 1rem; */
@@ -40,10 +45,6 @@ html {
     padding: 0.5rem 1rem;
 }
 
-:root {
-    --navbar-offset: 80px; /* adjust if navbar height changes */
-}
-
 /* Give each section near-full viewport height and center content */
 .content {
     scroll-snap-type: y mandatory;
@@ -51,12 +52,16 @@ html {
 
 /* sections take viewport height minus navbar offset */
 .content > section {
-    min-height: calc(100vh - var(--navbar-offset));
     display: flex;
-    align-items: center;       /* vertical centering */
-    padding: 3rem 1.5rem;      /* space inside the section */
+    align-items: center;
+    padding: 1rem 1rem;      /* Reduced from 3rem 1.5rem */
     box-sizing: border-box;
     scroll-snap-align: start;
+}
+
+/* New rule for full-height sections */
+.content > section.full-height {
+    min-height: calc(100vh - var(--navbar-offset));
 }
 
 /* slightly reduce offset on small screens */
@@ -64,7 +69,6 @@ html {
     :root { --navbar-offset: 64px; }
     .content > section {
         padding: 2rem 1rem;
-        min-height: calc(100vh - var(--navbar-offset));
     }
 }
 
@@ -81,6 +85,11 @@ html {
     background-clip: text;
     background-size: 150% 150%;  /* For animation */
     animation: pulse 5s ease infinite;
+    font-size: 1.75rem;
+}
+
+.intro h1 .name {
+    font-size: var(--intro-h1-size);
 }
 
 @keyframes pulse {

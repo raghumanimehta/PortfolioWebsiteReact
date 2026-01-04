@@ -5,12 +5,12 @@ import profilePic from '../assets/profile-picture.jpg';
 
 function Intro() {
     return (
-        <div className='outer-container'>
+        <div className='outer-container full-height'>
             <div className='dp-container'> 
                 <img src={profilePic} alt="Raghumani Mehta" /> 
             </div>
             <div className="intro">
-                <h1>Hi, I'm <span className="highlight">Raghumani Mehta</span>.</h1> 
+                <h1>Hi, I'm <span className="highlight name">Raghumani Mehta</span>.</h1> 
                 <h3>
                     <span>Systems Developer</span> | 
                     <span>Pathfinding Lead</span> @ <a href="https://ubcsailbot.org/" target="_blank" rel="noopener noreferrer">UBC Sailbot</a> |

@@ -28,6 +28,15 @@ function Navbar() {
     const scrollToSection = (sectionId) => {
         const element = document.getElementById(sectionId);
         if (element) {
+            if (element.id === "experience") {
+                const offset = 30; 
+                const elementPosition = element.getBoundingClientRect().top + window.scrollY;
+                window.scrollTo({
+                    top: elementPosition + offset,
+                    behavior: "smooth"
+                });
+                return;
+            }
             element.scrollIntoView({ behavior: "smooth" });
         }
     };
