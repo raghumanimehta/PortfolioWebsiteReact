@@ -37,7 +37,11 @@ export default function Skills() {
                 <div className="skill-category">
                     <h3>Cloud & DevOps</h3>
                     <ul className="skills-list">
-                        <li>AWS (Textract, Lambda, S3, SQS, SNS, RDS)</li>
+                        <li>AWS Textract</li>
+                        <li>AWS Lambda </li>
+                        <li>AWS S3</li> 
+                        <li>AWS SQS, SNS</li>
+                        <li>AWS RDS</li>
                         <li>Linux/Unix, POSIX</li>
                     </ul>
                 </div>
