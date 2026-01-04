@@ -25,13 +25,15 @@
 .dp-container {
     width: 36rem;
     height: 45rem;
-    border-radius: var(--raidus);
-    background-image: url('../../assets/profile-picture.jpg');
-    background-size: cover;      /* fills and crops */
-    background-position: center; /* adjust to control crop */
+    object-fit: cover;
 }
 
-.dp-container img { display: none; }
+.dp-container img { 
+    width: 100%;
+    height: 100%;
+    aspect-ratio: 1/1;
+    border-radius: var(--raidus);
+ }
 
 .intro h1 {
     font-size: 2.5rem;
