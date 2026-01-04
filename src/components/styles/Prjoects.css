@@ -1,13 +1,14 @@
 /* Projects section */
 .projects {
-    margin: 3rem auto;
-    padding: 0 1.5rem;
+    margin: 1rem auto;
+    padding: 0 1rem;
 }
 
 .projects h2 {
     font-size: 2rem;
     margin-bottom: 1.5rem;
     color: #2d3748;
+    margin-top: 0.5rem;
 }
 
 .ProjectsHolder {

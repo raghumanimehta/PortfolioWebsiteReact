@@ -4,8 +4,9 @@ import "./styles/Experience.css";
 function Experience() {
     return (
         <section className="experience">
-            <h2><span className='highlight'>Work Experience</span></h2>
-            <div className="experience-item"> 
+            <div className='work-experience'>
+                <h2><span className='highlight'>Work Experience</span></h2>
+                <div className="experience-item"> 
                     <div className="course">
                         <div className="course-header">
                             <div className="experience-header">
@@ -29,50 +30,75 @@ function Experience() {
                         </ul>
                     </div>
                 </div>
-            
-            <h2><span className="highlight">Teaching Experience</span></h2>
-            <div className="experience-item">
-                <div className="experience-header">
-                    <h3>Undergraduate Teaching Assistant</h3>
-                    <p className="company">
-                        <a href="https://www.cs.ubc.ca/" target="_blank" rel="noopener noreferrer">UBC Computer Science Department</a>
-                    </p>
-                </div>
 
-                <div className="experience-details">
+                <div className="experience-item"> 
                     <div className="course">
                         <div className="course-header">
-                            <h4>CPSC 317: Internet Computing</h4>
+                            <div className="experience-header">
+                                <h3>Jump Start Orientation Leader</h3>
+                                <p className="company">
+                                    UBC CSDL
+                                </p>
+                                <p className="date">Aug 2024 – Sept 2024</p>
+                            </div>
                             <div className="tech-tags">
-                                <span className="course-tag">Networking</span>
-                                <span className="course-tag">C</span>
-                                <span className="course-tag">Socket Programming</span>
-                                <span className="course-tag">Network Protocols</span>
+                                <span className="course-tag">Leadership</span>
+                                <span className="course-tag">Mentorship</span>
+                                <span className="course-tag">Time Management</span>
                             </div>
                         </div>
-                        <ul>
-                            <li>Selected to mentor students on <strong>socket programming</strong> and <strong>network protocols</strong>.</li>
-                            <li>Guided implementations of DNS resolvers, HTTP clients, and packet analysis tools.</li>
-                            <li>Held office hours to debug low-level network applications in C.</li>
+                        <ul> 
+                            <li>Mentored 25 first-year students and led a time-management seminar for 100+ attendees.</li> 
                         </ul>
                     </div>
+                </div>
 
-                    <div className="course">
-                        <div className="course-header">
-                            <h4>CPSC 310: Introduction to Software Engineering</h4>
-                            <div className="tech-tags">
-                                <span className="course-tag">Full-Stack</span>
-                                <span className="course-tag">Node.js</span>
-                                <span className="course-tag">TypeScript</span>
-                                <span className="course-tag">REST API</span>
-                                <span className="course-tag">CI/CD</span>
+            </div>
+            <div className='teaching-experience'>
+                <h2><span className="highlight">Teaching Experience</span></h2>
+                <div className="experience-item">
+                    <div className="experience-header">
+                        <h3>Undergraduate Teaching Assistant</h3>
+                        <p className="company">
+                            <a href="https://www.cs.ubc.ca/" target="_blank" rel="noopener noreferrer">UBC Computer Science Department</a>
+                        </p>
+                    </div>
+
+                    <div className="experience-details">
+                        <div className="course">
+                            <div className="course-header">
+                                <h4>CPSC 317: Computer Networking</h4>
+                                <div className="tech-tags">
+                                    <span className="course-tag">Networking</span>
+                                    <span className="course-tag">C</span>
+                                    <span className="course-tag">Socket Programming</span>
+                                    <span className="course-tag">Network Protocols</span>
+                                </div>
                             </div>
+                            <ul>
+                                <li>Selected to mentor students on <strong>socket programming</strong> and <strong>network protocols</strong>.</li>
+                                <li>Guided implementations of DNS resolvers, HTTP clients, and packet analysis tools.</li>
+                                <li>Held office hours to debug low-level network applications in C.</li>
+                            </ul>
                         </div>
-                        <ul>
-                            <li>Mentored <strong>50+ students</strong> on Node.js/TypeScript architecture and REST API design.</li>
-                            <li>Troubleshot and resolved complex <strong>CI/CD</strong> pipeline issues and async debugging challenges.</li>
-                            <li>Facilitated code reviews and taught testing and clean-architecture practices.</li>
-                        </ul>
+
+                        <div className="course">
+                            <div className="course-header">
+                                <h4>CPSC 310: Introduction to Software Engineering</h4>
+                                <div className="tech-tags">
+                                    <span className="course-tag">Full-Stack</span>
+                                    <span className="course-tag">Node.js</span>
+                                    <span className="course-tag">TypeScript</span>
+                                    <span className="course-tag">REST API</span>
+                                    <span className="course-tag">CI/CD</span>
+                                </div>
+                            </div>
+                            <ul>
+                                <li>Mentored <strong>50+ students</strong> on Node.js/TypeScript architecture and REST API design.</li>
+                                <li>Troubleshot and resolved complex <strong>CI/CD</strong> pipeline issues and async debugging challenges.</li>
+                                <li>Facilitated code reviews and taught testing and clean-architecture practices.</li>
+                            </ul>
+                        </div>
                     </div>
                 </div>
             </div>
