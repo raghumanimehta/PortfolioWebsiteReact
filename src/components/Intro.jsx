@@ -2,6 +2,7 @@ import React from 'react';
 import "./styles/Intro.css"
 import "../../style.css"
 import profilePic from '../assets/profile-picture.jpg';
+import resume from '../assets/ResumeDecember25_C_.pdf';
 
 function Intro() {
     return (
@@ -23,7 +24,7 @@ function Intro() {
                     <a href="https://www.linkedin.com/in/mehta-raghu" className="social-link" target="_blank" rel="noopener noreferrer" aria-label="LinkedIn" title="LinkedIn">
                         <svg viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg" aria-hidden="true" focusable="false"><path d="M20.45 20.45h-3.56v-5.4c0-1.29-.02-2.95-1.8-2.95-1.8 0-2.07 1.4-2.07 2.86v5.49H9.5V9h3.42v1.56h.05c.48-.9 1.66-1.85 3.42-1.85 3.66 0 4.34 2.41 4.34 5.54v6.75zM5.34 7.43a2.07 2.07 0 110-4.14 2.07 2.07 0 010 4.14zM7.12 20.45H3.56V9h3.56v11.45z"/></svg>
                     </a>
-                    <a href="/Public/ResumeDecember25_C_.pdf" className="social-link" target="_blank" rel="noopener noreferrer" aria-label="Resume" title="Resume">
+                    <a href={resume} className="social-link" target="_blank" rel="noopener noreferrer" aria-label="Resume" title="Resume">
                         <svg viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg" aria-hidden="true" focusable="false"><path d="M14 2H6a2 2 0 00-2 2v16a2 2 0 002 2h12a2 2 0 002-2V8l-6-6zM13 3.5L18.5 9H13V3.5zM8 13h8v2H8v-2zm0-4h8v2H8V9z"/></svg>
                     </a>
 
