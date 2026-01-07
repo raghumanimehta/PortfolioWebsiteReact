@@ -26,6 +26,7 @@ function Intro() {
                     <a href="/ResumeDecember25_C_.pdf" className="social-link" target="_blank" rel="noopener noreferrer" aria-label="Resume" title="Resume">
                         <svg viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg" aria-hidden="true" focusable="false"><path d="M14 2H6a2 2 0 00-2 2v16a2 2 0 002 2h12a2 2 0 002-2V8l-6-6zM13 3.5L18.5 9H13V3.5zM8 13h8v2H8v-2zm0-4h8v2H8V9z"/></svg>
                     </a>
+                    
                     </p>
                     <p>
                         I am a <strong>4th-year Computer Science and Physics student</strong> at <strong>UBC</strong> with a focus on understanding how systems work from the ground up. 
