@@ -14,8 +14,8 @@ exports.projects = [
             "Integrated privacy and encryption features"
         ],
         links: {
-            github: "your-github-link",
-            demo: "your-demo-link"
+            github: 'https://github.com/Anmol-Ghadia/CommandLinkXtreme", 
+            demo: ""
         }
     },
     {
