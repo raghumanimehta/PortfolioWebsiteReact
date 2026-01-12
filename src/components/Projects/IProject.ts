@@ -86,8 +86,8 @@ export const projects: Project[] = [
         "Resolved complex CI/CD and dependency issues using Yarn, a skill further refined as a CPSC 310 TA"
       ],
       links: {
-        github: "your-github-link",
-        demo: "your-demo-link"
+        github: "https://github.com/Anmol-Ghadia/CommandLinkXtreme",
+        demo: ""
       },
       collaborator: null
     },
