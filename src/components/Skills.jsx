@@ -1,5 +1,6 @@
 import React from "react";
 import "./styles/Skills.css";
+import { TechTag } from "./commonComponnents";
 
 export default function Skills() {
     return (
@@ -9,51 +10,51 @@ export default function Skills() {
             <div className="skills-container">
                 <div className="skill-category">
                     <h3>Languages</h3>
-                    <ul className="skills-list">
-                        <li>Python</li>
-                        <li>C++</li>
-                        <li>C</li>
-                        <li>Rust</li>
-                        <li>Java</li>
-                        <li>TypeScript</li>
-                        <li>JavaScript</li>
-                        <li>SQL</li>
-                    </ul>
+                    <div className="skills-list">
+                        <TechTag tech="Python" />
+                        <TechTag tech="C++" />
+                        <TechTag tech="C" />
+                        <TechTag tech="Rust" />
+                        <TechTag tech="Java" />
+                        <TechTag tech="TypeScript" />
+                        <TechTag tech="JavaScript" />
+                        <TechTag tech="SQL" />
+                    </div>
                 </div>
 
                 <div className="skill-category">
                     <h3>Frameworks & Tools</h3>
-                    <ul className="skills-list">
-                        <li>Node.js</li>
-                        <li>Express</li>
-                        <li>Spring Boot</li>
-                        <li>Git</li>
-                        <li>Docker</li>
-                        <li>ROS</li>
-                        <li>GitHub Actions</li>
-                    </ul>
+                    <div className="skills-list">
+                        <TechTag tech="Node.js" />
+                        <TechTag tech="Express" />
+                        <TechTag tech="Spring Boot" />
+                        <TechTag tech="Git" />
+                        <TechTag tech="Docker" />
+                        <TechTag tech="ROS" />
+                        <TechTag tech="GitHub Actions" />
+                    </div>
                 </div>
 
                 <div className="skill-category">
                     <h3>Cloud & DevOps</h3>
-                    <ul className="skills-list">
-                        <li>AWS Textract</li>
-                        <li>AWS Lambda </li>
-                        <li>AWS S3</li> 
-                        <li>AWS SQS, SNS</li>
-                        <li>AWS RDS</li>
-                        <li>Linux/Unix, POSIX</li>
-                    </ul>
+                    <div className="skills-list">
+                        <TechTag tech="AWS Textract" />
+                        <TechTag tech="AWS Lambda" />
+                        <TechTag tech="AWS S3" />
+                        <TechTag tech="AWS SQS, SNS" />
+                        <TechTag tech="AWS RDS" />
+                        <TechTag tech="Linux/Unix, POSIX" />
+                    </div>
                 </div>
 
                 <div className="skill-category">
                     <h3>Testing & Debugging</h3>
-                    <ul className="skills-list">
-                        <li>JUnit</li>
-                        <li>Mocha/Chai</li>
-                        <li>Pytest</li>
-                        <li>GDB, Valgrind</li>
-                    </ul>
+                    <div className="skills-list">
+                        <TechTag tech="JUnit" />
+                        <TechTag tech="Mocha/Chai" />
+                        <TechTag tech="Pytest" />
+                        <TechTag tech="GDB, Valgrind" />
+                    </div>
                 </div>
             </div>
         </section>

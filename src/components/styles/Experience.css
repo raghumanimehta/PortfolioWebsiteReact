@@ -93,6 +93,21 @@
     border-radius: 10px;
     font-size: 0.85rem;
     font-weight: 600;
+    display: inline-flex;
+    align-items: center;
+    gap: 0.4rem;
+}
+
+.icon-wrapper {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.tech-icon {
+    width: 1em;
+    height: 1em;
+    vertical-align: -0.125em;
 }
 
 .course ul {
