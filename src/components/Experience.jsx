@@ -11,7 +11,7 @@ function Experience() {
           <div className="course">
             <div className="course-header">
               <div className="experience-header">
-                <h3>Pathfinding Team Lead</h3>
+                <h3>Software Co-lead & Pathfinding Team Lead</h3>
                 <p className="company">
                   <a href="https://ubcsailbot.org/" target="_blank" rel="noopener noreferrer">UBC Sailbot</a>
                 </p>
