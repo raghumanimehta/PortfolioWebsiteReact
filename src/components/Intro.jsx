@@ -1,16 +1,50 @@
-import React from 'react';
+import React, { useCallback, useEffect, useRef, useState } from 'react';
 import "./styles/Intro.css"
 import "../../style.css"
 import profilePic from '../assets/profile-picture.jpg';
 import resume from '../assets/ResumeDecember25_C_.pdf';
 
+
 function Intro() {
+  const introRef = useRef(null);
+  const [profileHeight, setProfileHeight] = useState(null);
+
+  const ensureConsistentHeight = useCallback(() => {
+    if (!introRef.current) return;
+
+    if (window.matchMedia("(max-width: 768px)").matches) {
+      setProfileHeight(null);
+      return;
+    }
+
+    setProfileHeight(introRef.current.offsetHeight);
+  }, []);
+
+  useEffect(() => {
+    ensureConsistentHeight();
+
+    const resizeObserver = new ResizeObserver(() => {
+      ensureConsistentHeight();
+    });
+
+    if (introRef.current) {
+      resizeObserver.observe(introRef.current);
+    }
+
+    window.addEventListener("resize", ensureConsistentHeight);
+
+    return () => {
+      resizeObserver.disconnect();
+      window.removeEventListener("resize", ensureConsistentHeight);
+    };
+  }, [ensureConsistentHeight]);
+
   return (
     <div className='outer-container full-height'>
-      <div className='dp-container'>
-        <img src={profilePic} alt="Raghumani Mehta" />
+      <div className='dp-container' style={profileHeight ? { height: `${profileHeight}px` } : undefined}>
+        <img src={profilePic} alt="Raghumani Mehta" id="profilePic"/>
       </div>
-      <div className="intro">
+      <div className="intro" ref={introRef}>
         <h1>Hi, I'm <span className="highlight name">Raghumani Mehta</span>.</h1>
         <h3>
           <span>Systems Developer</span> |
