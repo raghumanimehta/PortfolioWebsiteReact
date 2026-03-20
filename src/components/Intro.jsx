@@ -2,7 +2,7 @@ import React, { useCallback, useEffect, useRef, useState } from 'react';
 import "./styles/Intro.css"
 import "../../style.css"
 import profilePic from '../assets/profile-picture.jpg';
-import resume from '../assets/ResumeDecember25_C_.pdf';
+import resume from '../assets/Mehta_Raghumani_Resume_main.pdf';
 
 
 function Intro() {
