@@ -27,18 +27,17 @@ function Navbar() {
 
     const scrollToSection = (sectionId) => {
         const element = document.getElementById(sectionId);
-        if (element) {
-            if (element.id === "experience") {
-                const offset = 30; 
-                const elementPosition = element.getBoundingClientRect().top + window.scrollY;
-                window.scrollTo({
-                    top: elementPosition + offset,
-                    behavior: "smooth"
-                });
-                return;
-            }
-            element.scrollIntoView({ behavior: "smooth" });
-        }
+        if (!element) return;
+
+        const navbar = document.querySelector(".navbar");
+        const navbarHeight = navbar ? navbar.getBoundingClientRect().height : 0;
+        const extraOffset = 8;
+        const elementPosition = element.getBoundingClientRect().top + window.scrollY;
+
+        window.scrollTo({
+            top: Math.max(elementPosition - navbarHeight - extraOffset, 0),
+            behavior: "smooth",
+        });
     };
 
     return (
