@@ -48,20 +48,17 @@ html {
 /* Give each section near-full viewport height and center content */
 .content {
     scroll-snap-type: y mandatory;
+    padding-top: calc(var(--navbar-offset) - 18px);
 }
 
 /* sections take viewport height minus navbar offset */
 .content > section {
     display: flex;
     align-items: center;
-    padding: 1rem 1rem;      /* Reduced from 3rem 1.5rem */
+    padding: 0 1rem;
     box-sizing: border-box;
     scroll-snap-align: start;
-}
-
-/* New rule for full-height sections */
-.content > section.full-height {
-    min-height: calc(100vh - var(--navbar-offset));
+    scroll-margin-top: var(--navbar-offset);
 }
 
 /* slightly reduce offset on small screens */

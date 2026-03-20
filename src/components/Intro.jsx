@@ -40,9 +40,9 @@ function Intro() {
   }, [ensureConsistentHeight]);
 
   return (
-    <div className='outer-container full-height'>
+    <div className='outer-container'>
       <div className='dp-container' style={profileHeight ? { height: `${profileHeight}px` } : undefined}>
-        <img src={profilePic} alt="Raghumani Mehta" id="profilePic"/>
+        <img src={profilePic} alt="Raghumani Mehta" />
       </div>
       <div className="intro" ref={introRef}>
         <h1>Hi, I'm <span className="highlight name">Raghumani Mehta</span>.</h1>
