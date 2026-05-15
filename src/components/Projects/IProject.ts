@@ -1,5 +1,6 @@
 export interface Project {
     title: string;
+    focus: string;
     duration: string;
     technologies: string[];
     description: string[];
@@ -15,6 +16,7 @@ export interface ProjectLinks {
 export const projects: Project[] = [
     {
       title: "Rusty File System",
+      focus: "Systems",
       duration: "Dec 2025 - Present",
       technologies: ["Rust", "FUSE", "File Systems", "Linux"],
       description: [
@@ -31,7 +33,25 @@ export const projects: Project[] = [
       collaborator: "https://www.linkedin.com/in/sean-donaghy/"
     },
     {
+      title: "FreeRTOS Scheduler Extensions",
+      focus: "Embedded",
+      duration: "Feb 2026 - Apr 2026",
+      technologies: ["C", "FreeRTOS", "Real-Time Systems", "Raspberry Pi Pico H"],
+      description: [
+        "Extended the FreeRTOS kernel with EDF, SRP, CBS, Global EDF, and Partitioned EDF scheduling policies",
+        "Implemented runtime stack sharing for SRP to reduce stack overhead while preserving resource-access correctness",
+        "Enabled and tested multicore scheduling behavior for Global EDF and Partitioned EDF on Raspberry Pi Pico H",
+        "Validated scheduler behavior using task timelines, resource-access traces, and low-level debugging with the Raspberry Pi Debug Probe"
+      ],
+      links: {
+        github: "https://github.com/alberto-escobar/CPSC538G",
+        demo: ""
+      },
+      collaborator: null
+    },
+    {
       title: "Reliable UDP",
+      focus: "Networking",
       duration: "Jun 2025 - Present",
       technologies: ["C++", "Linux/Unix Sockets", "UDP", "POSIX"],
       description: [
@@ -48,6 +68,7 @@ export const projects: Project[] = [
     },
     {
       title: "mycp Utility",
+      focus: "Systems",
       duration: "May 2025 - Jun 2025",
       technologies: ["C", "POSIX System Calls", "Linux"],
       description: [
@@ -63,6 +84,7 @@ export const projects: Project[] = [
     },
     {
       title: "OCR System",
+      focus: "Backend/Cloud",
       duration: "Jan 2025 - Apr 2025",
       technologies: ["Python", "AWS", "PostgreSQL", "Lambda", "SQS"],
       description: [
@@ -78,6 +100,7 @@ export const projects: Project[] = [
     },
     {
       title: "Chat App",
+      focus: "Full-Stack",
       duration: "Jun 2024 - Oct 2024 (Shelved)",
       technologies: ["TypeScript", "Node.js", "Express", "WebSocket"],
       description: [
@@ -93,6 +116,7 @@ export const projects: Project[] = [
     },
     {
       title: "Sudoku Game",
+      focus: "Frontend",
       duration: "Aug 2024 - Sept 2024",
       technologies: ["TypeScript", "HTML", "CSS", "Node.js"],
       description: [
@@ -107,6 +131,7 @@ export const projects: Project[] = [
     },
     {
       title: "Weather App (My first personal project)",
+      focus: "Full-Stack",
       duration: "Aug 2024",
       technologies: ["JavaScript", "Node.js", "Express", "HTML", "CSS"],
       description: [
@@ -121,6 +146,7 @@ export const projects: Project[] = [
     },
     {
       title: "Business Management App",
+      focus: "Desktop",
       duration: "Sept 2023 - Dec 2023",
       technologies: ["Java", "Swing", "JSON"],
       description: [

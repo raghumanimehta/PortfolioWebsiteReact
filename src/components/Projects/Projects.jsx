@@ -20,6 +20,7 @@ export default function Projects() {
                     <div className="course-header">
                         <div className="experience-header">
                             <h3>{project.title}</h3>
+                            <span className="project-focus-tag">{project.focus}</span>
                             <p className="company">
                                 {project.duration}
                             </p>

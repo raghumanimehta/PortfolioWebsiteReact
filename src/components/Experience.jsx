@@ -1,107 +1,121 @@
 import React from 'react';
 import "./styles/Experience.css";
-import { techIcons, TechTag } from "./commonComponnents.jsx"
+import { TechTag } from "./commonComponnents.jsx";
+
+const experiences = [
+  {
+    labels: ["Research", "Co-op"],
+    title: "Undergraduate Research Assistant",
+    organization: "Systopia Lab, UBC",
+    duration: "May 2026 - Present",
+    tags: ["Systems Research", "User-Level Paging", "Cloud Security"],
+    bullets: [
+      "Contributing to systems research on protecting confidential cloud applications from memory access pattern leakage.",
+      "Exploring user-level paging as a practical way to hide memory access patterns without requiring major application rewrites.",
+      "Preparing to prototype paging-based obfuscation techniques and evaluate their overhead on representative cloud workloads."
+    ]
+  },
+  {
+    labels: ["Work"],
+    title: "Software Lead",
+    organization: "UBC Sailbot",
+    organizationLink: "https://ubcsailbot.org/",
+    duration: "Feb 2025 - Present",
+    tags: ["Leadership", "Python", "Navigation Algorithms", "Testing"],
+    bullets: [
+      "Lead a 30-member software team across 5 subteams, coordinating development, code reviews, and integration planning for an autonomous sailboat.",
+      "Design autonomy software architecture and align software interfaces with electrical and mechanical subsystem constraints.",
+      "Guide development of route-planning algorithms for autonomous sailing under uncertain wind and marine conditions.",
+      "Built mock testing and simulation workflows to validate navigation logic before hardware integration."
+    ]
+  },
+  {
+    labels: ["Teaching"],
+    title: "Undergraduate Teaching Assistant",
+    roleDetail: "CPSC 317: Computer Networking",
+    organization: "UBC Department of Computer Science",
+    organizationLink: "https://www.cs.ubc.ca/",
+    duration: "Jan 2026 - Apr 2026",
+    tags: ["Networking", "C", "Socket Programming", "Network Protocols"],
+    bullets: [
+      "Led tutorials and supported students on IP forwarding, UDP, TCP, sockets, encryption, client-server programming, and debugging C/Java networking assignments.",
+      "Guided implementations of DNS resolvers, HTTP clients, and packet analysis tools.",
+      "Held office hours to debug low-level network applications in C."
+    ]
+  },
+  {
+    labels: ["Teaching"],
+    title: "Undergraduate Teaching Assistant",
+    roleDetail: "CPSC 310: Software Engineering",
+    organization: "UBC Department of Computer Science",
+    organizationLink: "https://www.cs.ubc.ca/",
+    duration: "Sept 2024 - Dec 2025",
+    tags: ["Full-Stack", "Node.js", "TypeScript", "REST API", "CI/CD"],
+    bullets: [
+      "Mentored 50+ students on TypeScript, Node.js, testing, and CI workflows across a large software engineering project.",
+      "Troubleshot complex CI/CD pipeline issues and async debugging challenges.",
+      "Facilitated code reviews and taught testing and clean-architecture practices."
+    ]
+  },
+  {
+    labels: ["Work"],
+    title: "Jump Start Orientation Leader",
+    organization: "UBC CSDL",
+    duration: "Aug 2024 - Sept 2024",
+    tags: ["Leadership", "Mentorship", "Time Management"],
+    bullets: [
+      "Mentored 25 first-year students and led a time-management seminar for 100+ attendees."
+    ]
+  }
+];
 
 function Experience() {
   return (
     <section className="experience">
-      <div className='work-experience'>
-        <h2><span className='highlight'>Work Experience</span></h2>
-        <div className="experience-item">
-          <div className="course">
-            <div className="course-header">
-              <div className="experience-header">
-                <h3>Software Co-lead & Pathfinding Team Lead</h3>
-                <p className="company">
-                  <a href="https://ubcsailbot.org/" target="_blank" rel="noopener noreferrer">UBC Sailbot</a>
-                </p>
-              </div>
-              <div className="tech-tags">
-                <TechTag tech="Leadership" />
-                <TechTag tech="Python" />
-                <TechTag tech="Navigation Algorithms" />
-                <TechTag tech="Testing" />
-              </div>
-            </div>
-            <ul>
-              <li>Lead 4 developers in weekly scrums; own pathfinding architecture, code reviews, and CI pipelines.</li>
-              <li>Optimize route-planning algorithms under uncertain conditions to improve simulated sail-time efficiency.</li>
-              <li>Build mock testing frameworks to validate autonomous navigation logic prior to hardware deployment.</li>
-              <li>Coordinate autonomy design decisions with electrical and mechanical engineering leads.</li>
-            </ul>
-          </div>
-        </div>
-
-        <div className="experience-item">
-          <div className="course">
-            <div className="course-header">
-              <div className="experience-header">
-                <h3>Jump Start Orientation Leader</h3>
-                <p className="company">
-                  UBC CSDL
-                </p>
-                <p className="date">Aug 2024 – Sept 2024</p>
-              </div>
-              <div className="tech-tags">
-                <TechTag tech="Leadership" />
-                <TechTag tech="Mentorship" />
-                <TechTag tech="Time Management" />
-              </div>
-            </div>
-            <ul>
-              <li>Mentored 25 first-year students and led a time-management seminar for 100+ attendees.</li>
-            </ul>
-          </div>
-        </div>
-
-      </div>
-      <div className='teaching-experience'>
-        <h2><span className="highlight">Teaching Experience</span></h2>
-        <div className="experience-item">
-          <div className="experience-header">
-            <h3>Undergraduate Teaching Assistant</h3>
-            <p className="company">
-              <a href="https://www.cs.ubc.ca/" target="_blank" rel="noopener noreferrer">UBC Computer Science Department</a>
-            </p>
-          </div>
-
-          <div className="experience-details">
-            <div className="course">
-              <div className="course-header">
-                <h4>CPSC 317: Computer Networking</h4>
-                <div className="tech-tags">
-                  <TechTag tech="Networking" />
-                  <TechTag tech="C" />
-                  <TechTag tech="Socket Programming" />
-                  <TechTag tech="Network Protocols" />
+      <h2><span className="highlight">Experience</span></h2>
+      <div className="experience-list">
+        {experiences.map((experience) => (
+          <article key={`${experience.title}-${experience.duration}`} className="experience-item experience-card">
+            <div className="experience-card-header">
+              <div className="experience-content">
+                <div className="experience-labels">
+                  {experience.labels.map((label) => (
+                    <span
+                      key={label}
+                      className={`experience-label${label === "Co-op" ? " experience-label-accent" : ""}`}
+                    >
+                      {label}
+                    </span>
+                  ))}
+                </div>
+                <div className="experience-header">
+                  <h3>{experience.title}</h3>
+                  {experience.roleDetail && <p className="role-detail">{experience.roleDetail}</p>}
+                  <p className="company">
+                    {experience.organizationLink ? (
+                      <a href={experience.organizationLink} target="_blank" rel="noopener noreferrer">{experience.organization}</a>
+                    ) : (
+                      experience.organization
+                    )}
+                  </p>
                 </div>
               </div>
-              <ul>
-                <li>Selected to mentor students on <strong>socket programming</strong> and <strong>network protocols</strong>.</li>
-                <li>Guided implementations of DNS resolvers, HTTP clients, and packet analysis tools.</li>
-                <li>Held office hours to debug low-level network applications in C.</li>
-              </ul>
-            </div>
-
-            <div className="course">
-              <div className="course-header">
-                <h4>CPSC 310: Introduction to Software Engineering</h4>
+              <div className="experience-meta">
+                <p className="date">{experience.duration}</p>
                 <div className="tech-tags">
-                  <TechTag tech="Full-Stack" />
-                  <TechTag tech="Node.js" />
-                  <TechTag tech="TypeScript" />
-                  <TechTag tech="REST API" />
-                  <TechTag tech="CI/CD" />
+                  {experience.tags.map((tech) => (
+                    <TechTag key={tech} tech={tech} />
+                  ))}
                 </div>
               </div>
-              <ul>
-                <li>Mentored <strong>50+ students</strong> on Node.js/TypeScript architecture and REST API design.</li>
-                <li>Troubleshot and resolved complex <strong>CI/CD</strong> pipeline issues and async debugging challenges.</li>
-                <li>Facilitated code reviews and taught testing and clean-architecture practices.</li>
-              </ul>
             </div>
-          </div>
-        </div>
+            <ul className="experience-bullets">
+              {experience.bullets.map((bullet) => (
+                <li key={bullet}>{bullet}</li>
+              ))}
+            </ul>
+          </article>
+        ))}
       </div>
     </section>
   );

@@ -2,60 +2,45 @@ import React from "react";
 import "./styles/Skills.css";
 import { TechTag } from "./commonComponnents";
 
+const skillGroups = [
+    {
+        title: "Languages",
+        items: ["C", "C++", "Java", "Python", "TypeScript", "JavaScript", "SQL", "Rust"]
+    },
+    {
+        title: "Frameworks & Tools",
+        items: ["Node.js", "Express", "Spring Boot", "Git", "Docker", "ROS", "GitHub Actions", "FreeRTOS", "Pico SDK"]
+    },
+    {
+        title: "Systems",
+        items: ["Linux/Unix", "POSIX", "Sockets", "Real-Time Scheduling"]
+    },
+    {
+        title: "Cloud",
+        items: ["AWS Textract", "AWS Lambda", "AWS S3", "AWS SQS", "AWS SNS", "AWS RDS"]
+    },
+    {
+        title: "Testing",
+        items: ["JUnit", "Mocha/Chai", "Pytest", "GDB", "Valgrind", "Raspberry Pi Debug Probe"]
+    }
+];
+
 export default function Skills() {
     return (
         <section className="skills-section">
             <h2><span className="highlight">Technical Skills</span></h2>
 
-            <div className="skills-container">
-                <div className="skill-category">
-                    <h3>Languages</h3>
-                    <div className="skills-list">
-                        <TechTag tech="Python" />
-                        <TechTag tech="C++" />
-                        <TechTag tech="C" />
-                        <TechTag tech="Rust" />
-                        <TechTag tech="Java" />
-                        <TechTag tech="TypeScript" />
-                        <TechTag tech="JavaScript" />
-                        <TechTag tech="SQL" />
+            <div className="skills-panel">
+                {skillGroups.map((group) => (
+                    <div key={group.title} className="skill-row">
+                        <h3>{group.title}</h3>
+                        <div className="skills-list">
+                            {group.items.map((skill) => (
+                                <TechTag key={skill} tech={skill} />
+                            ))}
+                        </div>
                     </div>
-                </div>
-
-                <div className="skill-category">
-                    <h3>Frameworks & Tools</h3>
-                    <div className="skills-list">
-                        <TechTag tech="Node.js" />
-                        <TechTag tech="Express" />
-                        <TechTag tech="Spring Boot" />
-                        <TechTag tech="Git" />
-                        <TechTag tech="Docker" />
-                        <TechTag tech="ROS" />
-                        <TechTag tech="GitHub Actions" />
-                    </div>
-                </div>
-
-                <div className="skill-category">
-                    <h3>Cloud & DevOps</h3>
-                    <div className="skills-list">
-                        <TechTag tech="AWS Textract" />
-                        <TechTag tech="AWS Lambda" />
-                        <TechTag tech="AWS S3" />
-                        <TechTag tech="AWS SQS, SNS" />
-                        <TechTag tech="AWS RDS" />
-                        <TechTag tech="Linux/Unix, POSIX" />
-                    </div>
-                </div>
-
-                <div className="skill-category">
-                    <h3>Testing & Debugging</h3>
-                    <div className="skills-list">
-                        <TechTag tech="JUnit" />
-                        <TechTag tech="Mocha/Chai" />
-                        <TechTag tech="Pytest" />
-                        <TechTag tech="GDB, Valgrind" />
-                    </div>
-                </div>
+                ))}
             </div>
         </section>
     );

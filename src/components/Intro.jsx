@@ -2,7 +2,7 @@ import React, { useCallback, useEffect, useRef, useState } from 'react';
 import "./styles/Intro.css"
 import "../../style.css"
 import profilePic from '../assets/profile-picture.jpg';
-import resume from '../assets/Mehta_Raghumani_Resume_main.pdf';
+import resume from '../assets/Mehta_Raghumani_resume_systems.pdf';
 
 
 function Intro() {
@@ -48,8 +48,8 @@ function Intro() {
         <h1>Hi, I'm <span className="highlight name">Raghumani Mehta</span>.</h1>
         <h3>
           <span>Systems Developer</span> |
-          <span>Software Co-Lead</span> @ <a href="https://ubcsailbot.org/" target="_blank" rel="noopener noreferrer">UBC Sailbot</a> |
-          4th Year CS + Physics @ <a href="https://www.ubc.ca/" target="_blank" rel="noopener noreferrer">UBC</a>
+          <span>Software Lead</span> @ <a href="https://ubcsailbot.org/" target="_blank" rel="noopener noreferrer">UBC Sailbot</a> |
+          CS + Physics @ <a href="https://www.ubc.ca/" target="_blank" rel="noopener noreferrer">UBC</a>
         </h3>
         <p className="social-links">
           <a href="https://github.com/raghumanimehta" className="social-link" target="_blank" rel="noopener noreferrer" aria-label="GitHub" title="GitHub">
@@ -64,13 +64,11 @@ function Intro() {
 
         </p>
         <p>
-          I am a <strong>4th-year Computer Science and Physics student</strong> at <strong>UBC</strong> with a focus on understanding how systems work from the ground up.
-          My primary interests are in <strong>systems programming and networking</strong>, though my background in physics helps me approach backend challenges with a strong analytical foundation.
-          I am currently working on a <strong>custom file system in Rust</strong> and a <strong>reliable data transfer layer over UDP in C++</strong>.
+          I build <strong>systems software and networking projects</strong> with a focus on low-level correctness, performance, and debugging.
+          Recent work includes <strong>FreeRTOS scheduler extensions</strong>, a <strong>reliable UDP transport layer in C++</strong>, and a <strong>Rust-based file system</strong>.
         </p>
         <p>
-          While my main strengths are in software, I have practical experience with hardware from my physics labs, including work with <strong>circuits, breadboards, and oscilloscopes</strong>.
-          I also serve as a <strong>Teaching Assistant</strong> for networking and software engineering courses. I enjoy <strong>guiding students</strong> through these topics and sharing what I am learning about how computer systems and physical principles intersect.
+          At UBC, I work across <strong>systems research</strong>, <strong>autonomous sailing software</strong>, and <strong>teaching</strong> in networking and software engineering.
         </p>
       </div>
     </div>
