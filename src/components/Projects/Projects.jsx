@@ -15,8 +15,8 @@ import "../styles/Prjoects.css";
 export default function Projects() {
     const processProject = () => {
         return projects.map((project) => (
-            <div key={project.title} className="experience-item project"> 
-                <div className="course">
+            <div key={project.title} className="experience-item experience-card project"> 
+                <div className="project-card-body">
                     <div className="course-header">
                         <div className="experience-header">
                             <h3>{project.title}</h3>
@@ -66,9 +66,9 @@ export default function Projects() {
         ))
     }
     return (
-        <section className="projects">
+        <section className="projects content-section">
             <h2><span className="highlight">Projects</span></h2>
-            <div className="ProjectsHolder">
+            <div className="ProjectsHolder content-list">
                 {processProject()}
             </div>
         </section>

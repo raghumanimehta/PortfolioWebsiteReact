@@ -15,24 +15,6 @@ export interface ProjectLinks {
 
 export const projects: Project[] = [
     {
-      title: "Rusty File System",
-      focus: "Systems",
-      duration: "Dec 2025 - Present",
-      technologies: ["Rust", "FUSE", "File Systems", "Linux"],
-      description: [
-        "Developing a FUSE-based file system in Rust, implementing custom logic for allocating and freeing inodes and data blocks",
-        "Engineering a hybrid index structure and traversing tree structures to efficiently locate and return data to the kernel",
-        "Collaborating on integrating HTTPS/SSH protocols to allow remote file access with the performance of local storage",
-        "Focused on memory safety and low-level hardware interactions inspired by CPSC 313 concepts",
-        "In collaboration with Sean Donaghy"
-      ],
-      links: {
-        github: "https://github.com/raghumanimehta/Rusty-File-System-", 
-        demo: ""
-      },
-      collaborator: "https://www.linkedin.com/in/sean-donaghy/"
-    },
-    {
       title: "FreeRTOS Scheduler Extensions",
       focus: "Embedded",
       duration: "Feb 2026 - Apr 2026",
@@ -50,18 +32,17 @@ export const projects: Project[] = [
       collaborator: null
     },
     {
-      title: "Reliable UDP",
-      focus: "Networking",
-      duration: "Jun 2025 - Present",
-      technologies: ["C++", "Linux/Unix Sockets", "UDP", "POSIX"],
+      title: "OCR System",
+      focus: "Backend/Cloud",
+      duration: "Jan 2025 - Apr 2025",
+      technologies: ["Python", "AWS", "PostgreSQL", "Lambda", "SQS"],
       description: [
-        "Engineering a reliable data transfer layer over UDP to replicate TCP guarantees such as ACKs and sequence numbering",
-        "Developing custom sender/receiver components utilizing low-level POSIX networking APIs for robust delivery",
-        "Implementing manual packet serialization and deserialization while ensuring 100% data integrity against packet loss",
-        "Adhering to modern C++ memory management practices, including smart pointers, to ensure code safety"
+        "Designed a serverless backend pipeline using AWS Textract, Lambda, and SQS for high-speed parallel processing",
+        "Architected a high-availability system supporting 50+ concurrent users with zero data loss",
+        "Led a backend sub-team of 3 to facilitate collaboration across a larger 8-member engineering design group"
       ],
       links: {
-        github: "https://github.com/raghumanimehta/ReliableUDP",
+        github: "https://github.com/CPSC319-2025/Team-3-CCS",
         demo: ""
       },
       collaborator: null
@@ -83,17 +64,36 @@ export const projects: Project[] = [
       collaborator: null
     },
     {
-      title: "OCR System",
-      focus: "Backend/Cloud",
-      duration: "Jan 2025 - Apr 2025",
-      technologies: ["Python", "AWS", "PostgreSQL", "Lambda", "SQS"],
+      title: "Rusty File System",
+      focus: "Systems",
+      duration: "Dec 2025 - Present",
+      technologies: ["Rust", "FUSE", "File Systems", "Linux"],
       description: [
-        "Designed a serverless backend pipeline using AWS Textract, Lambda, and SQS for high-speed parallel processing",
-        "Architected a high-availability system supporting 50+ concurrent users with zero data loss",
-        "Led a backend sub-team of 3 to facilitate collaboration across a larger 8-member engineering design group"
+        "Developing a FUSE-based file system in Rust, implementing custom logic for allocating and freeing inodes and data blocks",
+        "Engineering a hybrid index structure and traversing tree structures to efficiently locate and return data to the kernel",
+        "Collaborating on integrating HTTPS/SSH protocols to allow remote file access with the performance of local storage",
+        "Focused on memory safety and low-level hardware interactions inspired by CPSC 313 concepts",
+        "In collaboration with Sean Donaghy"
       ],
       links: {
-        github: "https://github.com/CPSC319-2025/Team-3-CCS",
+        github: "https://github.com/raghumanimehta/Rusty-File-System-", 
+        demo: ""
+      },
+      collaborator: "https://www.linkedin.com/in/sean-donaghy/"
+    },
+    {
+      title: "Reliable UDP",
+      focus: "Networking",
+      duration: "Jun 2025 - Present",
+      technologies: ["C++", "Linux/Unix Sockets", "UDP", "POSIX"],
+      description: [
+        "Engineering a reliable data transfer layer over UDP to replicate TCP guarantees such as ACKs and sequence numbering",
+        "Developing custom sender/receiver components utilizing low-level POSIX networking APIs for robust delivery",
+        "Implementing manual packet serialization and deserialization while ensuring 100% data integrity against packet loss",
+        "Adhering to modern C++ memory management practices, including smart pointers, to ensure code safety"
+      ],
+      links: {
+        github: "https://github.com/raghumanimehta/ReliableUDP",
         demo: ""
       },
       collaborator: null

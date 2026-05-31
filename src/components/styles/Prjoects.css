@@ -1,21 +1,5 @@
-/* Projects section */
-.projects {
-    margin: 1rem auto;
-    padding: 0 1rem;
-}
-
 .projects h2 {
-    font-size: 2rem;
-    margin-bottom: 1.5rem;
-    color: #2d3748;
     margin-top: 1.5rem;
-}
-
-.ProjectsHolder {
-    display: grid;
-    grid-template-columns: repeat(3, minmax(0, 1fr));
-    gap: 1.5rem;
-    align-items: start;
 }
 
 /* Override Experience.css for project cards */
@@ -32,14 +16,30 @@
 .ProjectsHolder .project {
     display: flex;
     flex-direction: column;
-    height: 90%; /* Changed from 100% */
-    min-height: 0; /* Prevent height conflicts */
+    width: 100%;
+    box-sizing: border-box;
+    min-height: 0;
 }
 
-.ProjectsHolder .course {
-    border-left: 4px solid #667eea;
-    padding-left: 1rem;
-    margin: 0; /* Override any inherited margins */
+.project-card-body {
+    margin: 0;
+}
+
+.project-card-body ul {
+    margin: 0.5rem 0 0 0;
+    padding-left: 1.25rem;
+    list-style: none;
+}
+
+.project-card-body li {
+    margin-bottom: 0.45rem;
+    color: #4a5568;
+}
+
+.project-card-body li::before {
+    content: '▸';
+    margin-right: 0.5rem;
+    color: #667eea;
 }
 
 .project-focus-tag {
@@ -62,18 +62,4 @@ svg {
     margin-bottom: 0px;
     width: 32px;
     height: 32px;
-}
-
-/* Tablet */
-@media (max-width: 900px) {
-    .ProjectsHolder {
-        grid-template-columns: repeat(2, minmax(0, 1fr));
-    }
-}
-
-/* Mobile */
-@media (max-width: 600px) {
-    .ProjectsHolder {
-        grid-template-columns: 1fr;
-    }
 }

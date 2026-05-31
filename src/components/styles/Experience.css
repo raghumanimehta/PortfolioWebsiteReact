@@ -1,21 +1,3 @@
-.experience {
-    max-width: 75rem;
-    margin: 3rem auto;
-    padding: 0 1.5rem;
-}
-
-.experience h2 {
-    font-size: 2rem;
-    margin-bottom: 1.5rem;
-    color: #2d3748;
-}
-
-.experience-list {
-    display: flex;
-    flex-direction: column;
-    gap: 1.25rem;
-}
-
 .experience-item {
     background: rgba(255, 255, 255, 0.88);
     backdrop-filter: blur(8px);
@@ -54,7 +36,7 @@
     display: flex;
     flex-wrap: wrap;
     gap: 0.5rem;
-    margin-bottom: 0.85rem;
+    margin-top: 0.85rem;
 }
 
 .experience-label {
@@ -198,11 +180,6 @@
 
 /* Mobile Responsiveness */
 @media (max-width: 768px) {
-    .experience {
-        padding: 0 1rem;
-        margin: 2rem auto;
-    }
-
     .experience-card-header {
         flex-direction: column;
     }
@@ -215,10 +192,6 @@
 
     .tech-tags {
         justify-content: flex-start;
-    }
-    
-    .experience h2 {
-        font-size: 1.8rem;
     }
     
     .experience-item {

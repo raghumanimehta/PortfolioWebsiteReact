@@ -71,23 +71,13 @@ const experiences = [
 
 function Experience() {
   return (
-    <section className="experience">
+    <section className="experience content-section">
       <h2><span className="highlight">Experience</span></h2>
-      <div className="experience-list">
+      <div className="experience-list content-list">
         {experiences.map((experience) => (
           <article key={`${experience.title}-${experience.duration}`} className="experience-item experience-card">
             <div className="experience-card-header">
               <div className="experience-content">
-                <div className="experience-labels">
-                  {experience.labels.map((label) => (
-                    <span
-                      key={label}
-                      className={`experience-label${label === "Co-op" ? " experience-label-accent" : ""}`}
-                    >
-                      {label}
-                    </span>
-                  ))}
-                </div>
                 <div className="experience-header">
                   <h3>{experience.title}</h3>
                   {experience.roleDetail && <p className="role-detail">{experience.roleDetail}</p>}
@@ -98,6 +88,16 @@ function Experience() {
                       experience.organization
                     )}
                   </p>
+                </div>
+                <div className="experience-labels">
+                  {experience.labels.map((label) => (
+                    <span
+                      key={label}
+                      className={`experience-label${label === "Co-op" ? " experience-label-accent" : ""}`}
+                    >
+                      {label}
+                    </span>
+                  ))}
                 </div>
               </div>
               <div className="experience-meta">
