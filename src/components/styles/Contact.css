@@ -1,0 +1,65 @@
+.contact-section.content-section {
+    background: var(--subtle);
+    border: 1px solid var(--border);
+    border-radius: 8px;
+    margin-bottom: 3rem;
+    padding: 2rem 1.5rem 2.25rem;
+}
+
+.contact-section h2 {
+    font-size: clamp(2rem, 4vw, 3.25rem);
+    line-height: 1.15;
+    max-width: 60rem;
+    margin: 0 0 1.6rem 0;
+}
+
+.contact-grid {
+    display: grid;
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+    gap: 1rem;
+    margin: 1.6rem 0;
+}
+
+.contact-item {
+    background: var(--surface);
+    border: 1px solid var(--border);
+    border-radius: 8px;
+    display: flex;
+    flex-direction: column;
+    gap: 0.5rem;
+    min-width: 0;
+    padding: 1.1rem 1.2rem;
+}
+
+.contact-item span {
+    color: var(--muted);
+    font-size: 0.86rem;
+    font-weight: 800;
+    text-transform: uppercase;
+}
+
+.contact-item a,
+.contact-item strong {
+    color: var(--ink);
+    font-size: 1.08rem;
+    overflow-wrap: anywhere;
+    text-decoration: none;
+}
+
+.contact-item a:hover {
+    color: var(--accent-hover);
+}
+
+.contact-resume {
+    margin-top: 0.35rem;
+}
+
+@media (max-width: 720px) {
+    .contact-section.content-section {
+        padding: 1.5rem 1rem 1.75rem;
+    }
+
+    .contact-grid {
+        grid-template-columns: 1fr;
+    }
+}

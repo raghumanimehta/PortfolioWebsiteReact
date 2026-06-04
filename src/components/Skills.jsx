@@ -5,23 +5,23 @@ import { TechTag } from "./commonComponnents";
 const skillGroups = [
     {
         title: "Languages",
-        items: ["C", "C++", "Java", "Python", "TypeScript", "JavaScript", "SQL", "Rust"]
+        items: ["C", "C++", "Python", "Rust", "TypeScript", "JavaScript", "Java", "SQL"]
     },
     {
-        title: "Frameworks & Tools",
-        items: ["Node.js", "Express", "Spring Boot", "Git", "Docker", "ROS", "GitHub Actions", "FreeRTOS", "Pico SDK"]
+        title: "Robotics & Tools",
+        items: ["ROS", "OMPL", "RRT*", "Git", "Docker", "GitHub Actions", "GDB", "Valgrind"]
     },
     {
         title: "Systems",
-        items: ["Linux/Unix", "POSIX", "Sockets", "Real-Time Scheduling"]
+        items: ["Linux", "POSIX", "Sockets", "userfaultfd", "Virtual Memory", "FreeRTOS", "Real-Time Scheduling"]
     },
     {
         title: "Cloud",
-        items: ["AWS Textract", "AWS Lambda", "AWS S3", "AWS SQS", "AWS SNS", "AWS RDS"]
+        items: ["AWS Textract", "AWS Lambda", "AWS S3", "AWS SQS/SNS", "PostgreSQL", "FastAPI"]
     },
     {
-        title: "Testing",
-        items: ["JUnit", "Mocha/Chai", "Pytest", "GDB", "Valgrind", "Raspberry Pi Debug Probe"]
+        title: "Backend",
+        items: ["Node.js", "Express", "Spring Boot", "REST API", "CI/CD", "Pytest", "JUnit", "Mocha/Chai"]
     }
 ];
 

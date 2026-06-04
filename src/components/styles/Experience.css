@@ -1,16 +1,16 @@
 .experience-item {
-    background: rgba(255, 255, 255, 0.88);
-    backdrop-filter: blur(8px);
+    background: var(--surface);
     padding: 1.5rem;
-    border-radius: 16px;
-    box-shadow: 0 8px 28px rgba(0, 0, 0, 0.06);
+    border: 1px solid var(--border);
+    border-radius: 8px;
+    box-shadow: var(--shadow);
     margin: 0;
 }
 
 .experience-card {
     width: 100%;
     box-sizing: border-box;
-    border-left: 4px solid #667eea;
+    border-left: 4px solid var(--accent);
 }
 
 .experience-card-header {
@@ -43,17 +43,17 @@
     display: inline-flex;
     align-items: center;
     border-radius: 999px;
-    background: rgba(102, 126, 234, 0.12);
-    color: #5564d7;
+    background: color-mix(in srgb, var(--accent) 14%, transparent);
+    color: var(--accent);
     padding: 0.3rem 0.7rem;
     font-size: 0.82rem;
     font-weight: 700;
-    letter-spacing: 0.02em;
 }
 
 .experience-label-accent {
-    background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
-    color: #ffffff;
+    background: var(--accent);
+    border: 1px solid var(--accent);
+    color: var(--button-text);
 }
 
 .experience-header {
@@ -62,7 +62,7 @@
 
 .experience-header h3 {
     font-size: 1.6rem;
-    color: #2d3748;
+    color: var(--ink);
     margin: 0 0 0.25rem 0;
 }
 
@@ -70,7 +70,7 @@
     margin: 0 0 0.35rem 0;
     font-size: 1.05rem;
     font-weight: 700;
-    color: #4a5568;
+    color: var(--muted);
 }
 
 .company {
@@ -81,20 +81,20 @@
 .date {
     font-size: 1rem;
     margin: 0;
-    color: #4a5568;
+    color: var(--muted);
     font-weight: 600;
     text-align: right;
 }
 
 .company a {
-    color: #667eea;
+    color: var(--accent);
     text-decoration: none;
     font-weight: 500;
-    transition: all 0.3s ease;
+    transition: color 0.15s ease;
 }
 
 .company a:hover {
-    color: #764ba2;
+    color: var(--accent-hover);
 }
 
 .experience-details {
@@ -105,7 +105,7 @@
 }
 
 .course {
-    border-left: 4px solid #667eea;
+    border-left: 4px solid var(--accent);
     padding-left: 1rem;
 }
 
@@ -117,7 +117,7 @@
 
 .course-header h4 {
     font-size: 1.3rem;
-    color: #2d3748;
+    color: var(--ink);
     margin: 0;
 }
 
@@ -130,10 +130,11 @@
 }
 
 .course-tag {
-    background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
-    color: white;
-    padding: 0.2rem 0.6rem;
-    border-radius: 10px;
+    background: color-mix(in srgb, var(--card) 72%, transparent);
+    color: var(--ink);
+    border: 1px solid var(--border);
+    padding: 0.25rem 0.6rem;
+    border-radius: 8px;
     font-size: 0.85rem;
     font-weight: 600;
     display: inline-flex;
@@ -162,7 +163,7 @@
 .course li,
 .experience-bullets li {
     margin-bottom: 0.45rem;
-    color: #4a5568;
+    color: var(--muted);
 }
 
 .experience-bullets {
@@ -173,9 +174,9 @@
 
 .course li::before,
 .experience-bullets li::before {
-    content: '▸';
+    content: '>';
     margin-right: 0.5rem;
-    color: #667eea;
+    color: var(--accent);
 }
 
 /* Mobile Responsiveness */

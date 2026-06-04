@@ -1,10 +1,11 @@
 import React from 'react';
 import Navbar from './components/Navbar';
 import Intro from './components/Intro';
+import Focus from './components/Focus';
 import Skills from './components/Skills';
-import TemplateProjects from './components/Projects/Template';
 import Projects from './components/Projects/Projects'
 import Experience from './components/Experience';
+import Contact from './components/Contact';
 
 function App() {
     return (
@@ -14,14 +15,20 @@ function App() {
                 <section id="home">
                     <Intro />
                 </section>
-                <section id="skills">
-                    <Skills />
+                <section id="focus">
+                    <Focus />
                 </section>
                 <section id="experience">
                     <Experience />
                 </section>
                 <section id="projects">
                     <Projects />
+                </section>
+                <section id="skills">
+                    <Skills />
+                </section>
+                <section id="contact">
+                    <Contact />
                 </section>
             </div>
         </>

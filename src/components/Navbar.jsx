@@ -1,27 +1,40 @@
 import React, { useState, useEffect } from "react";
 import "./styles/Navbar.css";
+import resume from "../assets/Mehta_Raghumani_resume_systems.pdf";
+
+const navItems = [
+    { label: "Home", section: "home" },
+    { label: "Experience", section: "experience" },
+    { label: "Projects", section: "projects" },
+];
 
 function Navbar() {
     const [scrolled, setScrolled] = useState(false);
     const [activeSection, setActiveSection] = useState("home");
+    const [theme, setTheme] = useState(() => localStorage.getItem("theme") || "dark");
+
+    useEffect(() => {
+        document.documentElement.dataset.theme = theme;
+        localStorage.setItem("theme", theme);
+    }, [theme]);
 
     useEffect(() => {
         const handleScroll = () => {
             setScrolled(window.scrollY > 50);
 
-            // Determine active section based on scroll position
-            const sections = ["home", "skills", "experience", "projects"];
+            const sections = ["home", "experience", "projects", "contact"];
             for (let section of sections) {
                 const element = document.getElementById(section);
                 if (element) {
                     const rect = element.getBoundingClientRect();
-                    if (rect.top <= 100) {
+                    if (rect.top <= 120) {
                         setActiveSection(section);
                     }
                 }
             }
         };
         window.addEventListener("scroll", handleScroll);
+        handleScroll();
         return () => window.removeEventListener("scroll", handleScroll);
     }, []);
 
@@ -46,83 +59,48 @@ function Navbar() {
                 <button
                     onClick={() => scrollToSection("home")}
                     className="navbar-logo"
-                    style={{
-                        background: "none",
-                        border: "none",
-                        cursor: "pointer",
-                    }}
                 >
-                    <span className="highlight">Raghumani</span>
+                    <span>Raghumani</span>
                     <span className="logo-subtitle">Mehta</span>
                 </button>
                 <ul className="nav-menu">
-                    <li className="nav-item">
-                        <button
-                            onClick={() => scrollToSection("home")}
-                            className={`nav-link ${
-                                activeSection === "home" ? "active" : ""
-                            }`}
-                            style={{
-                                background: "none",
-                                border: "none",
-                                cursor: "pointer",
-                            }}
-                        >
-                            Home
-                        </button>
-                    </li>
-                    <li className="nav-item">
-                        <button
-                            onClick={() => scrollToSection("skills")}
-                            className={`nav-link ${
-                                activeSection === "skills" ? "active" : ""
-                            }`}
-                            style={{
-                                background: "none",
-                                border: "none",
-                                cursor: "pointer",
-                            }}
-                        >
-                            Skills
-                        </button>
-                    </li> 
-                    <li className="nav-item">
-                        <button
-                            onClick={() => scrollToSection("experience")}
-                            className={`nav-link ${
-                                activeSection === "experience" ? "active" : ""
-                            }`}
-                            style={{
-                                background: "none",
-                                border: "none",
-                                cursor: "pointer",
-                            }}
-                        >
-                            Experience
-                        </button>
-                    </li>
-                    <li className="nav-item">
-                        <button
-                            onClick={() => scrollToSection("projects")}
-                            className={`nav-link ${
-                                activeSection === "projects" ? "active" : ""
-                            }`}
-                            style={{
-                                background: "none",
-                                border: "none",
-                                cursor: "pointer",
-                            }}
-                        >
-                            Projects
-                        </button>
-                    </li>
+                    {navItems.map((item) => (
+                        <li className="nav-item" key={item.section}>
+                            <button
+                                onClick={() => scrollToSection(item.section)}
+                                className={`nav-link ${activeSection === item.section ? "active" : ""}`}
+                            >
+                                {item.label}
+                            </button>
+                        </li>
+                    ))}
                     <li className="nav-item">
                         <a
-                            href="mailto:raghumani2003@outlook.com"
-                            className="nav-link contact-btn"
+                            href={resume}
+                            target="_blank"
+                            rel="noopener noreferrer"
+                            className="nav-link resume-link"
+                        >
+                            Resume
+                        </a>
+                    </li>
+                    <li className="nav-item">
+                        <button
+                            type="button"
+                            onClick={() => setTheme((current) => current === "dark" ? "light" : "dark")}
+                            className="theme-toggle"
+                            aria-label={`Switch to ${theme === "dark" ? "light" : "dark"} mode`}
+                        >
+                            {theme === "dark" ? "Light" : "Dark"}
+                        </button>
+                    </li>
+                    <li className="nav-item">
+                        <button
+                            onClick={() => scrollToSection("contact")}
+                            className={`nav-link ${activeSection === "contact" ? "active" : ""}`}
                         >
                             Contact
-                        </a>
+                        </button>
                     </li>
                 </ul>
             </div>

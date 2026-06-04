@@ -7,12 +7,13 @@ const experiences = [
     labels: ["Research", "Co-op"],
     title: "Undergraduate Research Assistant",
     organization: "Systopia Lab, UBC",
+    organizationLink: "https://systopia.cs.ubc.ca/",
     duration: "May 2026 - Present",
-    tags: ["Systems Research", "User-Level Paging", "Cloud Security"],
+    tags: ["Systems Research", "Linux", "userfaultfd", "Cloud Security"],
     bullets: [
-      "Contributing to systems research on protecting confidential cloud applications from memory access pattern leakage.",
-      "Exploring user-level paging as a practical way to hide memory access patterns without requiring major application rewrites.",
-      "Preparing to prototype paging-based obfuscation techniques and evaluate their overhead on representative cloud workloads."
+      "Paid Undergraduate Research Assistant working on confidential computing and memory access pattern leakage.",
+      "Prototyping Linux userfaultfd and user-level paging techniques for memory access pattern protection.",
+      "Evaluating security and overhead tradeoffs on representative cloud software workloads."
     ]
   },
   {
@@ -21,50 +22,25 @@ const experiences = [
     organization: "UBC Sailbot",
     organizationLink: "https://ubcsailbot.org/",
     duration: "Feb 2025 - Present",
-    tags: ["Leadership", "Python", "Navigation Algorithms", "Testing"],
+    tags: ["Leadership", "Python", "ROS", "Navigation Algorithms"],
     bullets: [
-      "Lead a 30-member software team across 5 subteams, coordinating development, code reviews, and integration planning for an autonomous sailboat.",
-      "Design autonomy software architecture and align software interfaces with electrical and mechanical subsystem constraints.",
-      "Guide development of route-planning algorithms for autonomous sailing under uncertain wind and marine conditions.",
-      "Built mock testing and simulation workflows to validate navigation logic before hardware integration."
+      "Managing 35 developers across software subteams building autonomy for a 3m robotic sailboat.",
+      "Coordinating architecture, reviews, testing, and integration across navigation, controls, simulation, and infrastructure work.",
+      "Aligning software delivery with electrical, mechanical, and competition-readiness constraints."
     ]
   },
   {
     labels: ["Teaching"],
     title: "Undergraduate Teaching Assistant",
-    roleDetail: "CPSC 317: Computer Networking",
+    roleDetail: "CPSC 317: Computer Networking / CPSC 310: Software Engineering",
     organization: "UBC Department of Computer Science",
     organizationLink: "https://www.cs.ubc.ca/",
-    duration: "Jan 2026 - Apr 2026",
-    tags: ["Networking", "C", "Socket Programming", "Network Protocols"],
+    duration: "Sept 2024 - Apr 2026",
+    tags: ["Networking", "C", "TypeScript", "CI/CD"],
     bullets: [
-      "Led tutorials and supported students on IP forwarding, UDP, TCP, sockets, encryption, client-server programming, and debugging C/Java networking assignments.",
-      "Guided implementations of DNS resolvers, HTTP clients, and packet analysis tools.",
-      "Held office hours to debug low-level network applications in C."
-    ]
-  },
-  {
-    labels: ["Teaching"],
-    title: "Undergraduate Teaching Assistant",
-    roleDetail: "CPSC 310: Software Engineering",
-    organization: "UBC Department of Computer Science",
-    organizationLink: "https://www.cs.ubc.ca/",
-    duration: "Sept 2024 - Dec 2025",
-    tags: ["Full-Stack", "Node.js", "TypeScript", "REST API", "CI/CD"],
-    bullets: [
-      "Mentored 50+ students on TypeScript, Node.js, testing, and CI workflows across a large software engineering project.",
-      "Troubleshot complex CI/CD pipeline issues and async debugging challenges.",
-      "Facilitated code reviews and taught testing and clean-architecture practices."
-    ]
-  },
-  {
-    labels: ["Work"],
-    title: "Jump Start Orientation Leader",
-    organization: "UBC CSDL",
-    duration: "Aug 2024 - Sept 2024",
-    tags: ["Leadership", "Mentorship", "Time Management"],
-    bullets: [
-      "Mentored 25 first-year students and led a time-management seminar for 100+ attendees."
+      "Supported CPSC 317 students on UDP/TCP, sockets, IP forwarding, DNS, HTTP clients, packet analysis, and C networking assignments.",
+      "Mentored CPSC 310 students on TypeScript, Node.js, REST APIs, testing, CI/CD, and project architecture.",
+      "Held office hours and code reviews focused on debugging, correctness, and maintainable engineering practice."
     ]
   }
 ];

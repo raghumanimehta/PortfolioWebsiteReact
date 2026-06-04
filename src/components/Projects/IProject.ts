@@ -2,162 +2,81 @@ export interface Project {
     title: string;
     focus: string;
     duration: string;
+    impact: string;
+    problem: string;
+    myWork: string[];
     technologies: string[];
-    description: string[];
-    links: ProjectLinks;
-    collaborator: string | null;
+    links: ProjectLink[];
 }
 
-export interface ProjectLinks {
-    github: string;
-    demo: string;
+export interface ProjectLink {
+    label: string;
+    url: string;
 }
 
 export const projects: Project[] = [
     {
-      title: "FreeRTOS Scheduler Extensions",
-      focus: "Embedded",
-      duration: "Feb 2026 - Apr 2026",
-      technologies: ["C", "FreeRTOS", "Real-Time Systems", "Raspberry Pi Pico H"],
-      description: [
-        "Extended the FreeRTOS kernel with EDF, SRP, CBS, Global EDF, and Partitioned EDF scheduling policies",
-        "Implemented runtime stack sharing for SRP to reduce stack overhead while preserving resource-access correctness",
-        "Enabled and tested multicore scheduling behavior for Global EDF and Partitioned EDF on Raspberry Pi Pico H",
-        "Validated scheduler behavior using task timelines, resource-access traces, and low-level debugging with the Raspberry Pi Debug Probe"
-      ],
-      links: {
-        github: "https://github.com/alberto-escobar/CPSC538G",
-        demo: ""
-      },
-      collaborator: null
-    },
-    {
-      title: "OCR System",
-      focus: "Backend/Cloud",
+      title: "OCR Serverless Backend",
+      focus: "Backend / Cloud",
       duration: "Jan 2025 - Apr 2025",
-      technologies: ["Python", "AWS", "PostgreSQL", "Lambda", "SQS"],
-      description: [
-        "Designed a serverless backend pipeline using AWS Textract, Lambda, and SQS for high-speed parallel processing",
-        "Architected a high-availability system supporting 50+ concurrent users with zero data loss",
-        "Led a backend sub-team of 3 to facilitate collaboration across a larger 8-member engineering design group"
+      impact: "Built a serverless document-processing backend for an 8-person engineering project.",
+      problem: "OCR work needed to move files through upload, extraction, asynchronous processing, and database persistence without losing user documents.",
+      myWork: [
+        "Led a backend sub-team of 3 within an 8-person team and designed the AWS serverless processing pipeline.",
+        "Integrated AWS Textract, Lambda, S3, SNS/SQS, FastAPI, and PostgreSQL for asynchronous document ingestion and extraction.",
+        "Set up backend reliability and delivery practices around API design, CI/CD, and handoffs with frontend and product teammates."
       ],
-      links: {
-        github: "https://github.com/CPSC319-2025/Team-3-CCS",
-        demo: ""
-      },
-      collaborator: null
-    },
-    {
-      title: "mycp Utility",
-      focus: "Systems",
-      duration: "May 2025 - Jun 2025",
-      technologies: ["C", "POSIX System Calls", "Linux"],
-      description: [
-        "Recreated the Linux 'cp' utility using low-level POSIX system calls (read, write) and buffered I/O",
-        "Managed file descriptors and permission flags to replicate OS-level error handling",
-        "Deepened understanding of the interface between user-space applications and the Linux kernel"
-      ],
-      links: {
-        github: "https://github.com/raghumanimehta/mycp",
-        demo: ""
-      },
-      collaborator: null
-    },
-    {
-      title: "Rusty File System",
-      focus: "Systems",
-      duration: "Dec 2025 - Present",
-      technologies: ["Rust", "FUSE", "File Systems", "Linux"],
-      description: [
-        "Developing a FUSE-based file system in Rust, implementing custom logic for allocating and freeing inodes and data blocks",
-        "Engineering a hybrid index structure and traversing tree structures to efficiently locate and return data to the kernel",
-        "Collaborating on integrating HTTPS/SSH protocols to allow remote file access with the performance of local storage",
-        "Focused on memory safety and low-level hardware interactions inspired by CPSC 313 concepts",
-        "In collaboration with Sean Donaghy"
-      ],
-      links: {
-        github: "https://github.com/raghumanimehta/Rusty-File-System-", 
-        demo: ""
-      },
-      collaborator: "https://www.linkedin.com/in/sean-donaghy/"
+      technologies: ["Python", "FastAPI", "AWS Lambda", "AWS S3", "AWS Textract", "AWS SQS/SNS", "PostgreSQL", "CI/CD"],
+      links: [
+        { label: "GitHub", url: "https://github.com/CPSC319-2025/Team-3-CCS" }
+      ]
     },
     {
       title: "Reliable UDP",
-      focus: "Networking",
+      focus: "Networking / Systems",
       duration: "Jun 2025 - Present",
-      technologies: ["C++", "Linux/Unix Sockets", "UDP", "POSIX"],
-      description: [
-        "Engineering a reliable data transfer layer over UDP to replicate TCP guarantees such as ACKs and sequence numbering",
-        "Developing custom sender/receiver components utilizing low-level POSIX networking APIs for robust delivery",
-        "Implementing manual packet serialization and deserialization while ensuring 100% data integrity against packet loss",
-        "Adhering to modern C++ memory management practices, including smart pointers, to ensure code safety"
+      impact: "Implemented a reliable file transfer protocol over UDP with TCP-like delivery guarantees.",
+      problem: "UDP does not provide ordering, retransmission, connection state, or data-integrity guarantees, so the protocol has to make loss and corruption explicit.",
+      myWork: [
+        "Implemented ACK handling, retransmissions, checksums, sequence numbers, and manual packet serialization over POSIX sockets.",
+        "Built sender/receiver components that preserve file integrity under packet loss and out-of-order delivery.",
+        "Kept the implementation close to the network stack to strengthen C/C++ systems debugging and protocol-design skills."
       ],
-      links: {
-        github: "https://github.com/raghumanimehta/ReliableUDP",
-        demo: ""
-      },
-      collaborator: null
+      technologies: ["C++", "C", "Linux/Unix Sockets", "UDP", "POSIX", "Checksums"],
+      links: [
+        { label: "GitHub", url: "https://github.com/raghumanimehta/ReliableUDP" }
+      ]
     },
     {
-      title: "Chat App",
-      focus: "Full-Stack",
-      duration: "Jun 2024 - Oct 2024 (Shelved)",
-      technologies: ["TypeScript", "Node.js", "Express", "WebSocket"],
-      description: [
-        "Engineered a web-based chat application providing secure, encrypted communication for up to 100 concurrent users",
-        "Implemented real-time bi-directional communication using WebSockets",
-        "Resolved complex CI/CD and dependency issues using Yarn, a skill further refined as a CPSC 310 TA"
+      title: "FreeRTOS Scheduler Extensions",
+      focus: "Embedded / Real-Time Systems",
+      duration: "Feb 2026 - Apr 2026",
+      impact: "Extended a FreeRTOS kernel with real-time scheduling policies and low-level validation on Raspberry Pi Pico H.",
+      problem: "Real-time workloads need predictable scheduling, resource-access correctness, and multicore behavior that can be validated on constrained hardware.",
+      myWork: [
+        "Implemented EDF, SRP, CBS, Global EDF, and Partitioned EDF scheduling policies inside the FreeRTOS kernel.",
+        "Added runtime stack sharing for SRP to reduce stack overhead while preserving resource-access correctness.",
+        "Validated scheduler behavior with task timelines, resource-access traces, multicore tests, and Raspberry Pi Debug Probe debugging."
       ],
-      links: {
-        github: "https://github.com/Anmol-Ghadia/CommandLinkXtreme",
-        demo: ""
-      },
-      collaborator: null
+      technologies: ["C", "FreeRTOS", "Real-Time Systems", "Raspberry Pi Pico H", "Embedded"],
+      links: [
+        { label: "GitHub", url: "https://github.com/alberto-escobar/CPSC538G" }
+      ]
     },
     {
-      title: "Sudoku Game",
-      focus: "Frontend",
-      duration: "Aug 2024 - Sept 2024",
-      technologies: ["TypeScript", "HTML", "CSS", "Node.js"],
-      description: [
-        "Developed a web-based Sudoku game featuring automated puzzle generation and solving algorithms",
-        "Collaborated in a team of 3 students, managing tasks and version control via Git"
+      title: "Rusty File System",
+      focus: "Systems / File Systems",
+      duration: "Dec 2025 - Present",
+      impact: "Developing a FUSE-based file system in Rust with custom allocation and indexing logic.",
+      problem: "File systems require careful inode/block allocation, metadata traversal, and kernel-facing behavior while preserving memory safety.",
+      myWork: [
+        "Implementing custom allocation and freeing logic for inodes and data blocks.",
+        "Engineering a hybrid index structure for locating file data and returning it through FUSE.",
+        "Exploring remote access over HTTPS/SSH while keeping the developer experience close to local storage."
       ],
-      links: {
-        github: "https://github.com/raghumanimehta/Sudoku-game?tab=readme-ov-file",
-        demo: "https://www.students.cs.ubc.ca/~aghadia/Sudoku/"
-      },
-      collaborator: null
-    },
-    {
-      title: "Weather App (My first personal project)",
-      focus: "Full-Stack",
-      duration: "Aug 2024",
-      technologies: ["JavaScript", "Node.js", "Express", "HTML", "CSS"],
-      description: [
-        "Full-stack application utilizing real-time data fetching from external weather APIs",
-        "Managed API endpoints and backend routing using Express"
-      ],
-      links: {
-        github: "https://github.com/raghumanimehta/WeatherApp",
-        demo: ""
-      },
-      collaborator: null
-    },
-    {
-      title: "Business Management App",
-      focus: "Desktop",
-      duration: "Sept 2023 - Dec 2023",
-      technologies: ["Java", "Swing", "JSON"],
-      description: [
-        "Created a regional operations tracker with features for revenue, expense, and employee management",
-        "Implemented data persistence using JSON to enable saving and loading of application states",
-        "Developed a custom graphical user interface using the Java Swing framework"
-      ],
-      links: {
-        github: "https://github.com/raghumanimehta/Regional-Business-Management-app",
-        demo: ""
-      },
-      collaborator: null
+      technologies: ["Rust", "FUSE", "File Systems", "Linux"],
+      links: [
+        { label: "GitHub", url: "https://github.com/raghumanimehta/Rusty-File-System-" }
+      ]
     }
 ];

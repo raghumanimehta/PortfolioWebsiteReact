@@ -1,16 +1,15 @@
 .projects h2 {
-    margin-top: 1.5rem;
+    margin-top: 0;
 }
 
 /* Override Experience.css for project cards */
 .ProjectsHolder .experience-item {
-    background: rgba(255, 255, 255, 0.88);
-    backdrop-filter: blur(8px);
+    background: var(--surface);
     padding: 1.5rem;
-    border-radius: 16px;
-    box-shadow: 0 8px 28px rgba(0, 0, 0, 0.06);
-    margin: 0; /* Override any inherited margins */
-    position: relative; /* Ensure proper stacking */
+    border-radius: 8px;
+    box-shadow: var(--shadow);
+    margin: 0;
+    position: relative;
 }
 
 .ProjectsHolder .project {
@@ -25,21 +24,54 @@
     margin: 0;
 }
 
+.project-impact {
+    color: var(--ink);
+    font-size: 1.08rem;
+    font-weight: 700;
+    line-height: 1.55;
+    margin: 1rem 0;
+}
+
+.project-detail-grid {
+    display: grid;
+    grid-template-columns: minmax(0, 0.9fr) minmax(0, 1.1fr);
+    gap: 1.25rem;
+    margin: 1rem 0;
+}
+
+.project-detail-block {
+    min-width: 0;
+}
+
+.project-detail-block h4,
+.project-footer h4 {
+    color: var(--ink);
+    font-size: 0.9rem;
+    margin: 0 0 0.45rem 0;
+}
+
+.project-detail-block p {
+    color: var(--muted);
+    line-height: 1.65;
+    margin: 0;
+}
+
 .project-card-body ul {
-    margin: 0.5rem 0 0 0;
+    margin: 0;
     padding-left: 1.25rem;
     list-style: none;
 }
 
 .project-card-body li {
     margin-bottom: 0.45rem;
-    color: #4a5568;
+    color: var(--muted);
+    line-height: 1.6;
 }
 
 .project-card-body li::before {
-    content: '▸';
+    content: '>';
     margin-right: 0.5rem;
-    color: #667eea;
+    color: var(--accent);
 }
 
 .project-focus-tag {
@@ -49,17 +81,62 @@
     margin: 0 0 0.45rem 0;
     padding: 0.22rem 0.65rem;
     border-radius: 999px;
-    background: #dff7f2;
-    color: #0f766e;
-    border: 1px solid rgba(15, 118, 110, 0.15);
+    background: color-mix(in srgb, var(--accent) 14%, transparent);
+    color: var(--accent);
+    border: 1px solid color-mix(in srgb, var(--accent) 32%, transparent);
     font-size: 0.8rem;
     font-weight: 700;
-    letter-spacing: 0.01em;
 }
 
-svg {
-    padding: 5px 0px;
-    margin-bottom: 0px;
-    width: 32px;
-    height: 32px;
+.project-footer {
+    display: grid;
+    grid-template-columns: minmax(0, 1fr) auto;
+    gap: 1.25rem;
+    margin-top: 1.1rem;
+    padding-top: 1rem;
+    border-top: 1px solid var(--border);
+}
+
+.project-tech,
+.project-links {
+    min-width: 0;
+}
+
+.project-tech .tech-tags {
+    justify-content: flex-start;
+}
+
+.project-links div {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 0.55rem;
+}
+
+.project-links a {
+    align-items: center;
+    border: 1px solid var(--border);
+    border-radius: 8px;
+    color: var(--accent);
+    display: inline-flex;
+    font-size: 0.9rem;
+    font-weight: 700;
+    min-height: 2.25rem;
+    padding: 0.45rem 0.7rem;
+    text-decoration: none;
+}
+
+.project-links a:hover {
+    border-color: var(--accent);
+    background: color-mix(in srgb, var(--accent) 12%, transparent);
+}
+
+@media (max-width: 768px) {
+    .project-detail-grid,
+    .project-footer {
+        grid-template-columns: 1fr;
+    }
+
+    .ProjectsHolder .experience-item {
+        padding: 1.25rem;
+    }
 }

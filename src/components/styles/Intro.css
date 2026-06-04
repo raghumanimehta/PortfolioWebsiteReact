@@ -1,38 +1,37 @@
 :root {
-    --raidus: 20px;
+    --radius: 8px;
 }
 
 .intro { 
-    font-size: 1.3rem;
+    font-size: 1.1rem;
     width: 100%;
     max-width: none;
     margin: 0;
-    padding: 3rem;
+    padding: 0;
     min-width: 0;
     box-sizing: border-box;
-    background: rgba(255, 255, 255, 0.8);
-    backdrop-filter: blur(10px);
-    border-radius: var(--raidus);
-    box-shadow: 0 8px 32px rgba(0, 0, 0, 0.1);
 }
 
 .outer-container {
     width: min(100%, 88rem);
     margin: 0 auto;
     display: grid;
-    grid-template-columns: minmax(14rem, 24rem) minmax(0, 1fr);
-    gap: clamp(1.25rem, 2vw, 2rem);
-    align-items: center; /* centers image vertically with text */
-    padding: 0.6rem clamp(1rem, 2.5vw, 2rem) 0;
+    grid-template-columns: minmax(14rem, 22rem) minmax(0, 1fr);
+    gap: clamp(2rem, 4vw, 4rem);
+    align-items: center;
+    padding: 0 clamp(1rem, 2.5vw, 2rem);
     box-sizing: border-box;
 }
 
 .dp-container {
     width: 100%;
-    max-width: 24rem;
+    max-width: 22rem;
+    aspect-ratio: 4 / 5;
     object-fit: cover;
     overflow: hidden;
-    border-radius: var(--raidus);
+    border-radius: var(--radius);
+    border: 1px solid var(--border);
+    box-shadow: var(--shadow);
 }
 
 .dp-container img { 
@@ -44,35 +43,45 @@
  }
 
 .intro h1 {
-    font-size: 2.5rem;
-    margin-bottom: 0.75rem;
-    color: #2d3748;
+    color: var(--ink);
+    font-size: clamp(3rem, 7vw, 5.6rem);
+    line-height: 1.14;
+    margin: 0 0 0.85rem 0;
+    max-width: 58rem;
 }
 
-.intro h3 {
-    font-size: 1.2rem;
-    color: #4a5568;
-    margin-bottom: 0.75rem;
-    line-height: 1.8;
+.hero-positioning {
+    color: var(--ink);
+    font-size: clamp(1.35rem, 2.6vw, 2.25rem);
+    line-height: 1.25;
+    margin: 0 0 1.1rem 0;
+    max-width: 54rem;
+}
+
+.intro-eyebrow {
+    color: var(--muted);
+    font-size: 0.92rem;
+    font-weight: 800;
+    margin: 0 0 0.8rem 0;
+    text-transform: uppercase;
 }
 
 .intro p {
-    line-height: 1.8;
-    margin-bottom: 1.5rem;
-    color: #2d3748;
+    color: var(--muted);
+    line-height: 1.7;
+    margin-bottom: 1.25rem;
 }
 
-.intro strong {
-    color: #667eea;
-    font-weight: 600;
+.intro-summary {
+    font-size: 1.16rem;
+    max-width: 52rem;
 }
 
 .intro a {
-    color: #667eea;
+    color: var(--accent);
     text-decoration: none;
     position: relative;
-    font-weight: 500;
-    transition: all 0.3s ease;
+    font-weight: 700;
 }
 
 .intro a::after {
@@ -82,7 +91,7 @@
     left: 0;
     width: 0;
     height: 2px;
-    background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+    background: var(--accent);
     transition: width 0.3s ease;
 }
 
@@ -91,40 +100,34 @@
 }
 
 .intro a:hover {
-    color: #764ba2;
+    color: var(--accent-hover);
 }
 
-.intro .social-links {
+.hero-actions {
     display: flex;
+    flex-wrap: wrap;
     gap: 0.75rem;
-    align-items: center;
-    margin-bottom: 1.5rem;
+    margin-top: 1.75rem;
 }
 
-.intro .social-link {
-    display: inline-flex;
-    align-items: center;
-    justify-content: center;
-    width: 52px; 
-    height: 52px;
-    border-radius: 12px;
-    /* background: #f7fafc; */
-    color: #2d3748;
-    text-decoration: none;
-    transition: transform 0.15s ease, box-shadow 0.15s ease, color 0.15s ease;
-    /* border: 1px solid rgba(45,55,72,0.04); */
+.hero-actions a::after {
+    display: none;
 }
 
-.intro .social-link svg {
-    width: 32px;
-    height: 32px;
-    fill: currentColor;
+.intro .primary-link {
+    color: var(--button-text);
 }
 
-.intro .social-link:hover {
-    transform: translateY(-3px);
-    box-shadow: 0 6px 18px rgba(102,126,234,0.15);
-    color: #667eea;
+.intro .primary-link:hover {
+    color: var(--button-text);
+}
+
+.intro .secondary-link {
+    color: var(--ink);
+}
+
+.intro .secondary-link:hover {
+    color: var(--accent);
 }
 
 .sr-only {
@@ -150,27 +153,29 @@
 
 @media (max-width: 768px) {
     .intro {
-        padding: 2rem 1.5rem;
+        order: 1;
+        padding: 0;
         margin: 0;
-        font-size: 1.2rem;
+        font-size: 1rem;
     }
     
     .intro h1 {
-        font-size: 2rem;
+        font-size: 3rem;
     }
-    
-    .intro h3 {
-        font-size: 1.1rem;
+
+    .hero-positioning {
+        font-size: 1.35rem;
     }
 
     .outer-container {
-        grid-template-columns: 1fr; /* stack on mobile */
+        grid-template-columns: 1fr;
     }
     
     .dp-container {
+        order: 2;
         max-width: 12rem;
         aspect-ratio: 1 / 1;
-        margin: 0 auto;
+        margin: 0;
     }
 
     .dp-container img {
@@ -181,6 +186,15 @@
 }
 
 @media (max-width: 480px) {
+    .hero-actions {
+        display: grid;
+        grid-template-columns: 1fr 1fr;
+    }
+
+    .hero-actions .primary-link {
+        grid-column: 1 / -1;
+    }
+
     .dp-container img {
         object-position: 50% 14%;
      }
