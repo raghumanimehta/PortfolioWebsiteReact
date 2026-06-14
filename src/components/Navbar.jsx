@@ -1,6 +1,9 @@
-import React, { useRef, useState, useEffect } from "react";
+import React, { useCallback, useRef, useState, useEffect } from "react";
+import { NavLink, useLocation, useNavigate } from "react-router-dom";
 import "./styles/Navbar.css";
 import resume from "../assets/Mehta_Raghumani_resume_systems.pdf";
+
+const HOME_SCROLL_TARGET_KEY = "portfolio-home-scroll-target";
 
 const navItems = [
     { label: "Home", section: "home" },
@@ -9,12 +12,49 @@ const navItems = [
 ];
 
 function Navbar() {
+    const location = useLocation();
+    const navigate = useNavigate();
     const [scrolled, setScrolled] = useState(false);
     const [activeSection, setActiveSection] = useState("home");
     const [theme, setTheme] = useState(() => localStorage.getItem("theme") || "dark");
     const [menuOpen, setMenuOpen] = useState(false);
     const activeLockRef = useRef({ section: null, until: 0 });
     const activeSectionRef = useRef("home");
+    const isHomePage = location.pathname === "/";
+
+    const scrollToSection = useCallback((sectionId) => {
+        const element = document.getElementById(sectionId);
+        if (!element) return false;
+
+        activeLockRef.current = {
+            section: sectionId,
+            until: Date.now() + 1200,
+        };
+        setActiveSection(sectionId);
+
+        const navbar = document.querySelector(".navbar");
+        const navbarHeight = navbar ? navbar.getBoundingClientRect().height : 0;
+        const extraOffset = 8;
+        const elementPosition = element.getBoundingClientRect().top + window.scrollY;
+
+        window.scrollTo({
+            top: Math.max(elementPosition - navbarHeight - extraOffset, 0),
+            behavior: "smooth",
+        });
+        setMenuOpen(false);
+        return true;
+    }, []);
+
+    const goToSection = (sectionId) => {
+        if (!isHomePage) {
+            sessionStorage.setItem(HOME_SCROLL_TARGET_KEY, sectionId);
+            setMenuOpen(false);
+            navigate("/");
+            return;
+        }
+
+        scrollToSection(sectionId);
+    };
 
     useEffect(() => {
         document.documentElement.dataset.theme = theme;
@@ -26,8 +66,26 @@ function Navbar() {
     }, [activeSection]);
 
     useEffect(() => {
+        if (!isHomePage) {
+            setActiveSection("");
+        }
+    }, [isHomePage]);
+
+    useEffect(() => {
+        if (!isHomePage) return;
+
+        const storedTarget = sessionStorage.getItem(HOME_SCROLL_TARGET_KEY);
+        if (!storedTarget) return;
+
+        sessionStorage.removeItem(HOME_SCROLL_TARGET_KEY);
+        window.requestAnimationFrame(() => scrollToSection(storedTarget));
+    }, [isHomePage, scrollToSection]);
+
+    useEffect(() => {
         const handleScroll = () => {
             setScrolled(window.scrollY > 50);
+
+            if (!isHomePage) return;
 
             if (activeLockRef.current.section && Date.now() < activeLockRef.current.until) {
                 setActiveSection(activeLockRef.current.section);
@@ -55,40 +113,18 @@ function Navbar() {
         window.addEventListener("scroll", handleScroll);
         handleScroll();
         return () => window.removeEventListener("scroll", handleScroll);
-    }, []);
-
-    const scrollToSection = (sectionId) => {
-        const element = document.getElementById(sectionId);
-        if (!element) return;
-
-        activeLockRef.current = {
-            section: sectionId,
-            until: Date.now() + 1200,
-        };
-        setActiveSection(sectionId);
-
-        const navbar = document.querySelector(".navbar");
-        const navbarHeight = navbar ? navbar.getBoundingClientRect().height : 0;
-        const extraOffset = 8;
-        const elementPosition = element.getBoundingClientRect().top + window.scrollY;
-
-        window.scrollTo({
-            top: Math.max(elementPosition - navbarHeight - extraOffset, 0),
-            behavior: "smooth",
-        });
-        setMenuOpen(false);
-    };
+    }, [isHomePage]);
 
     return (
         <nav className={`navbar ${scrolled ? "scrolled" : ""}`}>
             <div className="navbar-container">
                 <div className="navbar-top-row">
                     <button
-                        onClick={() => scrollToSection("home")}
+                        onClick={() => goToSection("home")}
                         className="navbar-logo"
                     >
-                        <span>Raghumani</span>
-                        <span className="logo-subtitle">Mehta</span>
+                        <span className="navbar-logo-name">Raghumani Mehta</span>
+                        <span className="logo-subtitle">Portfolio</span>
                     </button>
                     <div className="mobile-nav-controls">
                         <button
@@ -114,8 +150,8 @@ function Navbar() {
                     {navItems.map((item) => (
                         <li className="nav-item" key={item.section}>
                             <button
-                                onClick={() => scrollToSection(item.section)}
-                                className={`nav-link ${activeSection === item.section ? "active" : ""}`}
+                                onClick={() => goToSection(item.section)}
+                                className={`nav-link ${isHomePage && activeSection === item.section ? "active" : ""}`}
                             >
                                 {item.label}
                             </button>
@@ -133,6 +169,15 @@ function Navbar() {
                         </a>
                     </li>
                     <li className="nav-item">
+                        <NavLink
+                            to="/blog"
+                            className={({ isActive }) => `nav-link${isActive ? " active" : ""}`}
+                            onClick={() => setMenuOpen(false)}
+                        >
+                            Blog
+                        </NavLink>
+                    </li>
+                    <li className="nav-item">
                         <button
                             type="button"
                             onClick={() => setTheme((current) => current === "dark" ? "light" : "dark")}
@@ -144,8 +189,8 @@ function Navbar() {
                     </li>
                     <li className="nav-item">
                         <button
-                            onClick={() => scrollToSection("contact")}
-                            className={`nav-link ${activeSection === "contact" ? "active" : ""}`}
+                            onClick={() => goToSection("contact")}
+                            className={`nav-link ${isHomePage && activeSection === "contact" ? "active" : ""}`}
                         >
                             Contact
                         </button>

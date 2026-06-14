@@ -29,7 +29,7 @@
     aspect-ratio: 4 / 5;
     object-fit: cover;
     overflow: hidden;
-    border-radius: var(--radius);
+    border-radius: 20px;
     border: 1px solid var(--border);
     box-shadow: var(--shadow);
 }
