@@ -8,7 +8,6 @@ import Projects from './components/Projects/Projects'
 import Experience from './components/Experience';
 
 
-type
 function Blog() {
     return (
         <>
