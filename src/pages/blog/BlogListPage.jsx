@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useState } from "react";
 import { Link } from "react-router-dom";
 import Navbar from "../../components/Navbar";
 import "./BlogPages.css";
@@ -10,17 +10,83 @@ import "./BlogPages.css";
  */
 function BlogListPage({ posts = [] }) {
     const hasPosts = posts.length > 0;
-    let page = Math.trunc(posts.length / 5);
+
+    const [currentPage, setCurrentPage] = useState(1);
+    const itemsPerPage = 5;
+
+    const indexOfLastItem = currentPage * itemsPerPage;
+    const indexOfFirstItem = indexOfLastItem - itemsPerPage;
+
+    // Extract items for the current page
+    const currentPosts = posts.slice(indexOfFirstItem, indexOfLastItem);
+    const totalPages = Math.max(1, Math.ceil(posts.length / itemsPerPage));
 
     return (
         <div className="blog-shell">
             <Navbar />
             <main className="blog-page blog-page--list">
+                {hasPosts ? (
+                    <section className="blog-list" aria-label="Blog posts">
+                        {posts.map((post) => (
+                            <article className="blog-card" key={post.slug}>
+                                {post.coverImage ? (
+                                    <div className="blog-card__cover-wrapper">
+                                        <img
+                                            className="blog-card__cover"
+                                            src={post.coverImage}
+                                            alt={`${post.title} cover`}
+                                        />
+                                    </div>
+                                ) : null}
+                                <div className="blog-card__body">
+                                    <div className="blog-card__meta">
+                                        <span>{post.publishedAt}</span>
+                                        {post.readingTime ? <span>{post.readingTime}</span> : null}
+                                        {post.featured ? <span>Featured</span> : null}
+                                    </div>
+                                    <h2>{post.title}</h2>
+                                    <p>{post.excerpt}</p>
+                                    {post.tags.length > 0 ? (
+                                        <ul className="blog-tag-list" aria-label={`${post.title} tags`}>
+                                            {post.tags.map((tag) => (
+                                                <li key={tag}>{tag}</li>
+                                            ))}
+                                        </ul>
+                                    ) : null}
+                                    <Link className="blog-card__link" to={`/blog/${post.slug}`}>
+                                        Open post
+                                    </Link>
+                                </div>
+                            </article>
+                        ))}
+                    </section>
+                ) : (
+                    <section className="blog-empty-state" aria-live="polite">
+                        <p className="blog-empty-state__eyebrow">No posts wired in yet</p>
+                        <h2>Your blog list scaffold is ready.</h2>
+                        <p>
+                            Pass a <code>BlogMetadata[]</code> into <code>BlogListPage</code> when you are ready to
+                            add pagination and real post summaries.
+                        </p>
+                    </section>
+                )}
+
+
+                <section>
+                </section>
                 <section className="blog-pagination" aria-label="Blog pagination">
                     <div className="blog-pagination__controls">
-                        <button type="button" className="blog-pagination__button">Previous</button>
-                        <span className="blog-pagination__status">Page X of Y</span>
-                        <button type="button" className="blog-pagination__button">Next</button>
+                        <button type="button"
+                            className="blog-pagination__button"
+                            onClick={() => setCurrentPage((prev) => Math.max(1, prev - 1))}
+                            disabled={currentPage === 1}>Previous</button>
+                        <span className="blog-pagination__status">Page {currentPage} of {totalPages}</span>
+                        <button type="button"
+                            className="blog-pagination__button"
+                            onClick={() => setCurrentPage((prev) => Math.min(totalPages, prev + 1))}
+                            disabled={currentPage === totalPages}>
+                            Next
+                        </button>
                     </div>
                 </section>
             </main>

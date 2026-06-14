@@ -18,13 +18,9 @@ function BlogPostPage({ post = null }) {
                 <Navbar />
                 <main className="blog-page blog-page--post">
                     <section className="blog-empty-state blog-empty-state--detail" aria-live="polite">
-                        <p className="blog-empty-state__eyebrow">No post loaded</p>
-                        <h1>Blog post scaffold is connected.</h1>
-                        <p>
-                            Route parameter <code>{slug ?? "unknown"}</code> is available, but the page is waiting for a
-                            <code> BlogPost </code>
-                            prop before it can render real content.
-                        </p>
+                        <p className="blog-empty-state__eyebrow">WIP</p>
+                        <h1>WIP</h1>
+                        <p>This blog post is still in progress.</p>
                     </section>
                 </main>
             </div>

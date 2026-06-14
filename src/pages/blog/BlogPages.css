@@ -109,8 +109,7 @@
     box-shadow: var(--shadow);
 }
 
-.blog-card__cover-wrapper,
-.blog-card__cover-placeholder {
+.blog-card__cover-wrapper {
     aspect-ratio: 16 / 9;
     width: 100%;
     background:
