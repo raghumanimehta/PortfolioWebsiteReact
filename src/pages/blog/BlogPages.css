@@ -154,7 +154,7 @@
     flex-wrap: wrap;
     gap: 0.6rem;
     padding: 0;
-    margin: 0;
+    margin: 10px;
     list-style: none;
 }
 
@@ -269,7 +269,6 @@
 
 .blog-post__header {
     border: 0;
-    border-bottom: 1px solid var(--border);
     border-radius: 0;
     box-shadow: none;
     background: transparent;
@@ -291,9 +290,10 @@
 .blog-prose {
     padding: 0 2.2rem 2.2rem;
     color: var(--ink);
+    font-size: 1.1rem;
 }
 
-.blog-prose > :first-child {
+.blog-prose> :first-child {
     margin-top: 0;
 }
 
@@ -342,13 +342,14 @@
     border: 1px solid color-mix(in srgb, var(--border) 65%, transparent);
 }
 
-.blog-prose :not(pre) > code {
+.blog-prose :not(pre)>code {
     padding: 0.2rem 0.4rem;
     border-radius: 8px;
     background: var(--subtle);
 }
 
 @media (max-width: 768px) {
+
     .blog-page,
     .blog-page--post {
         width: min(100%, calc(100% - 1.25rem));

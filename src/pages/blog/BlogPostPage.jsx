@@ -3,14 +3,11 @@ import ReactMarkdown from "react-markdown";
 import { useParams } from "react-router-dom";
 import Navbar from "../../components/Navbar";
 import "./BlogPages.css";
+import { blogPosts } from "./posts";
 
-/** @typedef {import("../../blog/types").BlogPost} BlogPost */
-
-/**
- * @param {{ post?: BlogPost | null }} props
- */
-function BlogPostPage({ post = null }) {
+function BlogPostPage() {
     const { slug } = useParams();
+    const post = blogPosts.find((blogPost) => blogPost.metadata.slug === slug);
 
     if (!post) {
         return (
