@@ -28,36 +28,36 @@ function BlogListPage({ posts = [] }) {
                 {hasPosts ? (
                     <section className="blog-list" aria-label="Blog posts">
                         {posts.map((post) => (
-                            <article className="blog-card" key={post.slug}>
-                                {post.coverImage ? (
-                                    <div className="blog-card__cover-wrapper">
-                                        <img
-                                            className="blog-card__cover"
-                                            src={post.coverImage}
-                                            alt={`${post.title} cover`}
-                                        />
-                                    </div>
-                                ) : null}
-                                <div className="blog-card__body">
-                                    <div className="blog-card__meta">
-                                        <span>{post.publishedAt}</span>
-                                        {post.readingTime ? <span>{post.readingTime}</span> : null}
-                                        {post.featured ? <span>Featured</span> : null}
-                                    </div>
-                                    <h2>{post.title}</h2>
-                                    <p>{post.excerpt}</p>
-                                    {post.tags.length > 0 ? (
-                                        <ul className="blog-tag-list" aria-label={`${post.title} tags`}>
-                                            {post.tags.map((tag) => (
-                                                <li key={tag}>{tag}</li>
-                                            ))}
-                                        </ul>
+                            <Link className="blog-card__link" to={`/blog/${post.slug}`} key={post.slug}>
+                                <article className="blog-card">
+                                    {post.coverImage ? (
+                                        <div className="blog-card__cover-wrapper">
+                                            <img
+                                                className="blog-card__cover"
+                                                src={post.coverImage}
+                                                alt={`${post.title} cover`}
+                                            />
+                                        </div>
                                     ) : null}
-                                    <Link className="blog-card__link" to={`/blog/${post.slug}`}>
-                                        Open post
-                                    </Link>
-                                </div>
-                            </article>
+                                    <div className="blog-card__body">
+                                        <div className="blog-card__meta">
+                                            <span>{post.publishedAt}</span>
+                                            {post.readingTime ? <span>{post.readingTime}</span> : null}
+                                            {post.featured ? <span>Featured</span> : null}
+                                        </div>
+                                        <h2>{post.title}</h2>
+                                        <p>{post.excerpt}</p>
+                                        {post.tags.length > 0 ? (
+                                            <ul className="blog-tag-list" aria-label={`${post.title} tags`}>
+                                                {post.tags.map((tag) => (
+                                                    <li key={tag}>{tag}</li>
+                                                ))}
+                                            </ul>
+                                        ) : null}
+                                        <span className="blog-card__cta">Open post</span>
+                                    </div>
+                                </article>
+                            </Link>
                         ))}
                     </section>
                 ) : (

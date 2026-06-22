@@ -1,6 +1,6 @@
 const myJourneyAsAComputerScienceStudent = {
     metadata: {
-        slug: "my-journey-as-a-computer-science-student",
+        slug: "my-journey-as-a-computer-science-student:y1",
         title: "Year 1: Fighting for My Place in Computer Science",
         publishedAt: "2026-06-22",
         excerpt: "My first year at UBC: competing for a place in computer science, discovering programming, and learning how to slow down when solving problems.",
