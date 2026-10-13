@@ -1,6 +1,6 @@
 import React from "react";
 import "./styles/Skills.css";
-import { TechTag } from "./commonComponnents";
+import { TechTag } from "./TechTag";
 
 const skillGroups = [
     {
@@ -9,7 +9,7 @@ const skillGroups = [
     },
     {
         title: "Robotics & Tools",
-        items: ["ROS", "OMPL", "RRT*", "Git", "Docker", "GitHub Actions", "GDB", "Valgrind"]
+        items: ["ROS", "OMPL", "RRT*", "Motor Control", "Motion Planning", "CAN", "Fusion", "Git", "Docker", "GitHub Actions", "GDB", "Valgrind"]
     },
     {
         title: "Systems",

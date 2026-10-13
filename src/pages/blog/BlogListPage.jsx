@@ -1,9 +1,10 @@
-import React, { useState } from "react";
+import React, { useEffect, useState } from "react";
 import { Link } from "react-router-dom";
 import Navbar from "../../components/Navbar";
+import { formatPublishedDate } from "./formatPublishedDate";
 import "./BlogPages.css";
 
-/** @typedef {import("../../blog/types").BlogMetadata} BlogMetadata */
+/** @typedef {import("./types").BlogMetadata} BlogMetadata */
 
 /**
  * @param {{ posts?: BlogMetadata[] }} props
@@ -13,6 +14,10 @@ function BlogListPage({ posts = [] }) {
 
     const [currentPage, setCurrentPage] = useState(1);
     const itemsPerPage = 5;
+
+    useEffect(() => {
+        window.scrollTo({ top: 0, behavior: "instant" });
+    }, [currentPage]);
 
     const indexOfLastItem = currentPage * itemsPerPage;
     const indexOfFirstItem = indexOfLastItem - itemsPerPage;
@@ -25,11 +30,16 @@ function BlogListPage({ posts = [] }) {
         <div className="blog-shell">
             <Navbar />
             <main className="blog-page blog-page--list">
+                <header className="blog-intro">
+                    <p className="blog-kicker">Writing</p>
+                    <h1>Learning in public.</h1>
+                    <p>Notes on building software, studying computer science, and figuring things out along the way.</p>
+                </header>
                 {hasPosts ? (
                     <section className="blog-list" aria-label="Blog posts">
-                        {posts.map((post) => (
+                        {currentPosts.map((post) => (
                             <Link className="blog-card__link" to={`/blog/${post.slug}`} key={post.slug}>
-                                <article className="blog-card">
+                                <article className={`blog-card${post.coverImage ? " blog-card--with-cover" : ""}`}>
                                     {post.coverImage ? (
                                         <div className="blog-card__cover-wrapper">
                                             <img
@@ -41,7 +51,7 @@ function BlogListPage({ posts = [] }) {
                                     ) : null}
                                     <div className="blog-card__body">
                                         <div className="blog-card__meta">
-                                            <span>{post.publishedAt}</span>
+                                            <time dateTime={post.publishedAt}>{formatPublishedDate(post.publishedAt)}</time>
                                             {post.readingTime ? <span>{post.readingTime}</span> : null}
                                             {post.featured ? <span>Featured</span> : null}
                                         </div>
@@ -54,7 +64,7 @@ function BlogListPage({ posts = [] }) {
                                                 ))}
                                             </ul>
                                         ) : null}
-                                        <span className="blog-card__cta">Open post</span>
+                                        <span className="blog-card__cta">Read article <span aria-hidden="true">↗</span></span>
                                     </div>
                                 </article>
                             </Link>
@@ -74,7 +84,7 @@ function BlogListPage({ posts = [] }) {
 
                 <section>
                 </section>
-                <section className="blog-pagination" aria-label="Blog pagination">
+                {totalPages > 1 && <section className="blog-pagination" aria-label="Blog pagination">
                     <div className="blog-pagination__controls">
                         <button type="button"
                             className="blog-pagination__button"
@@ -88,7 +98,7 @@ function BlogListPage({ posts = [] }) {
                             Next
                         </button>
                     </div>
-                </section>
+                </section>}
             </main>
         </div>
     )

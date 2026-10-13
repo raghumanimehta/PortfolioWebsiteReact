@@ -1,38 +1,18 @@
-import React from 'react';
-import Navbar from './components/Navbar';
-import Intro from './components/Intro';
-import Focus from './components/Focus';
-import Skills from './components/Skills';
-import Projects from './components/Projects/Projects'
-import Experience from './components/Experience';
-import Contact from './components/Contact';
+import React from "react";
+import { Route, Routes } from "react-router-dom";
+import HomePage from "./pages/home/HomePage";
+import BlogListPage from "./pages/blog/BlogListPage";
+import BlogPostPage from "./pages/blog/BlogPostPage";
+import { blogPosts } from "./pages/blog/posts";
+import NotFoundPage from "./pages/NotFoundPage";
 
-function App() {
+export default function App() {
     return (
-        <>
-            <Navbar />
-            <div className="content">
-                <section id="home">
-                    <Intro />
-                </section>
-                <section id="focus">
-                    <Focus />
-                </section>
-                <section id="experience">
-                    <Experience />
-                </section>
-                <section id="projects">
-                    <Projects />
-                </section>
-                <section id="skills">
-                    <Skills />
-                </section>
-                <section id="contact">
-                    <Contact />
-                </section>
-            </div>
-        </>
+        <Routes>
+            <Route path="/" element={<HomePage />} />
+            <Route path="/blog" element={<BlogListPage posts={blogPosts.map((post) => post.metadata)} />} />
+            <Route path="/blog/:slug" element={<BlogPostPage />} />
+            <Route path="*" element={<NotFoundPage />} />
+        </Routes>
     );
 }
-
-export default App;

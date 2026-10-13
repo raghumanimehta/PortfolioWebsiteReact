@@ -8,6 +8,7 @@ const HOME_SCROLL_TARGET_KEY = "portfolio-home-scroll-target";
 const navItems = [
     { label: "Home", section: "home" },
     { label: "Experience", section: "experience" },
+    { label: "Achievements", section: "achievements" },
     { label: "Projects", section: "projects" },
 ];
 
@@ -39,7 +40,7 @@ function Navbar() {
 
         window.scrollTo({
             top: Math.max(elementPosition - navbarHeight - extraOffset, 0),
-            behavior: "smooth",
+            behavior: window.matchMedia("(prefers-reduced-motion: reduce)").matches ? "instant" : "smooth",
         });
         setMenuOpen(false);
         return true;
@@ -53,7 +54,8 @@ function Navbar() {
             return;
         }
 
-        scrollToSection(sectionId);
+        setMenuOpen(false);
+        window.requestAnimationFrame(() => scrollToSection(sectionId));
     };
 
     useEffect(() => {
@@ -74,12 +76,13 @@ function Navbar() {
     useEffect(() => {
         if (!isHomePage) return;
 
-        const storedTarget = sessionStorage.getItem(HOME_SCROLL_TARGET_KEY);
+        const storedTarget = sessionStorage.getItem(HOME_SCROLL_TARGET_KEY)
+            || new URLSearchParams(location.search).get("section");
         if (!storedTarget) return;
 
         sessionStorage.removeItem(HOME_SCROLL_TARGET_KEY);
         window.requestAnimationFrame(() => scrollToSection(storedTarget));
-    }, [isHomePage, scrollToSection]);
+    }, [isHomePage, location.search, scrollToSection]);
 
     useEffect(() => {
         const handleScroll = () => {
@@ -92,7 +95,7 @@ function Navbar() {
                 return;
             }
 
-            const sections = ["home", "experience", "projects", "contact"];
+            const sections = ["home", "experience", "achievements", "projects", "contact"];
             const navbar = document.querySelector(".navbar");
             const navbarHeight = navbar ? navbar.getBoundingClientRect().height : 0;
             const activationLine = navbarHeight + Math.min(window.innerHeight * 0.28, 180);

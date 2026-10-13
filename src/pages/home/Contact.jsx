@@ -1,6 +1,6 @@
 import React from "react";
 import "./styles/Contact.css";
-import resume from "../assets/Mehta_Raghumani_resume_systems.pdf";
+import resume from "../../assets/Mehta_Raghumani_resume_systems.pdf";
 
 const contactItems = [
   {
@@ -23,8 +23,9 @@ const contactItems = [
     value: "Vancouver, BC"
   },
   {
-    label: "Availability",
-    value: "Fall 2026 co-op"
+    label: "Currently",
+    value: "Robotics Software Engineering Intern · Red Rabbit Robotics",
+    href: "https://www.redrabbitrobotics.ai/"
   }
 ];
 

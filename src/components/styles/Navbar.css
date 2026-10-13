@@ -127,8 +127,8 @@
 }
 
 .menu-toggle {
-    background: var(--accent);
-    border-color: var(--accent);
+    background: var(--button-background);
+    border-color: var(--button-background);
     color: var(--button-text);
     font-weight: 800;
 }
@@ -142,10 +142,13 @@
     padding-top: var(--navbar-offset);
 }
 
-@media (max-width: 900px) {
+@media (max-width: 1100px) {
     .navbar-container {
         align-items: stretch;
         flex-direction: column;
+        max-height: calc(100dvh - 2rem);
+        overflow-y: auto;
+        overscroll-behavior: contain;
     }
 
     .navbar-top-row {

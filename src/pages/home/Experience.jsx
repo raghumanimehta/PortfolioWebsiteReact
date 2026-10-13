@@ -1,19 +1,35 @@
 import React from 'react';
 import "./styles/Experience.css";
-import { TechTag } from "./commonComponnents.jsx";
+import { TechTag } from "./TechTag.jsx";
 
 const experiences = [
+  {
+    labels: ["Work", "Co-op"],
+    title: "Robotics Software Engineering Intern",
+    organization: "Red Rabbit Robotics",
+    organizationLink: "https://www.redrabbitrobotics.ai/",
+    roleDetail: "Burnaby, BC · On-site",
+    duration: "Sept 2026 - Present",
+    tags: ["Robotics", "Computer Vision", "Motor Control", "Motion Planning", "CAN"],
+    bullets: [
+      "Work on robotics software problems spanning computer vision, motion planning, and controls.",
+      "Develop motor-control interfaces for gain tuning and motion planning, using cubic-spline interpolation to generate motion trajectories.",
+      "Debug CAN protocol and wiring issues to diagnose communication faults between software and motor hardware.",
+      "Evaluate component placement, stability, and fit through mount prototyping in Fusion and physical testing.",
+      "Design a closed-loop motor-cooling module that regulates cooler power using motor-temperature feedback."
+    ]
+  },
   {
     labels: ["Research", "Co-op"],
     title: "Undergraduate Research Assistant",
     organization: "Systopia Lab, UBC",
     organizationLink: "https://systopia.cs.ubc.ca/",
-    duration: "May 2026 - Present",
-    tags: ["Systems Research", "Linux", "userfaultfd", "Cloud Security"],
+    duration: "2026",
+    tags: ["Systems Research", "Linux", "userfaultfd", "ORAM", "Cloud Security"],
     bullets: [
-      "Paid Undergraduate Research Assistant working on confidential computing and memory access pattern leakage.",
-      "Prototyping Linux userfaultfd and user-level paging techniques for memory access pattern protection.",
-      "Evaluating security and overhead tradeoffs on representative cloud software workloads."
+      "Worked as a paid Undergraduate Research Assistant on confidential computing and memory access pattern leakage.",
+      "Explored Linux userfaultfd and user-level paging techniques for memory access pattern protection.",
+      "Selected to present Flexible ORAM-based Mitigation Against Controlled-Channel Attacks at the ACM Student Research Competition at SOSP 2026."
     ]
   },
   {

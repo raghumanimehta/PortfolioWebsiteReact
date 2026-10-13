@@ -10,6 +10,7 @@
     --ink: var(--text);
     --surface: var(--card);
     --button-text: #fbf7ef;
+    --button-background: #236fa7;
     --subtle: rgba(243, 234, 220, 0.055);
     --border: #2A2F36;
     --shadow: 0 14px 34px rgba(0, 0, 0, 0.26);
@@ -23,6 +24,7 @@
     --accent: #2458db;
     --accent-hover: #1746b8;
     --button-text: #ffffff;
+    --button-background: #2458db;
     --subtle: rgba(22, 24, 29, 0.045);
     --border: rgba(22, 24, 29, 0.14);
     --shadow: 0 12px 28px rgba(22, 24, 29, 0.1);
@@ -46,6 +48,10 @@ body {
 
 html {
     scroll-behavior: smooth;
+}
+
+@media (prefers-reduced-motion: reduce) {
+    html { scroll-behavior: auto; }
 }
 
 .nav {
@@ -192,8 +198,8 @@ html {
 }
 
 .primary-link {
-    background: var(--accent);
-    border: 1px solid var(--accent);
+    background: var(--button-background);
+    border: 1px solid var(--button-background);
     color: var(--button-text);
 }
 

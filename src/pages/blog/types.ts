@@ -9,7 +9,12 @@ export interface BlogMetadata {
     featured?: boolean;
 }
 
+export interface BlogSection {
+    heading?: string;
+    paragraphs: string[];
+}
+
 export interface BlogPost {
     metadata: BlogMetadata;
-    content: string;
+    content: BlogSection[];
 }

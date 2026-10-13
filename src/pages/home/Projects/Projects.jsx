@@ -17,6 +17,21 @@ export default function Projects() {
                         </div>
                     </div>
                     <p className="project-impact">{project.impact}</p>
+                    {project.overview && (
+                        <figure className="project-overview">
+                            <figcaption>{project.overview.caption}</figcaption>
+                            <ol className="project-flow">
+                                {project.overview.steps.map((step, index) => (
+                                    <li key={step.title}>
+                                        <span className="project-step-number" aria-hidden="true">0{index + 1}</span>
+                                        <strong>{step.title}</strong>
+                                        <span>{step.detail}</span>
+                                    </li>
+                                ))}
+                            </ol>
+                            {project.overview.note && <p className="project-flow-note">↩ {project.overview.note}</p>}
+                        </figure>
+                    )}
                     <div className="project-detail-grid">
                         <div className="project-detail-block">
                             <h4>Problem:</h4>
