@@ -1,4 +1,4 @@
-import React, { useEffect } from "react";
+import React, { useEffect, useRef, useState } from "react";
 import ReactMarkdown from "react-markdown";
 import { Link, useParams } from "react-router-dom";
 import Navbar from "../../components/Navbar";
@@ -9,9 +9,32 @@ import { formatPublishedDate } from "./formatPublishedDate";
 function BlogPostPage() {
     const { slug } = useParams();
     const post = blogPosts.find((blogPost) => blogPost.metadata.slug === slug);
+    const tableOfContentsRef = useRef(null);
+    const [showSideContents, setShowSideContents] = useState(false);
 
     useEffect(() => {
         window.scrollTo({ top: 0, behavior: "instant" });
+    }, [slug]);
+
+    useEffect(() => {
+        const tableOfContents = tableOfContentsRef.current;
+        const desktop = window.matchMedia("(min-width: 1024px)");
+        setShowSideContents(false);
+        if (!tableOfContents) return;
+
+        const updateContents = () => {
+            setShowSideContents(desktop.matches && tableOfContents.getBoundingClientRect().bottom <= 0);
+        };
+        // Observe the original list, whose space remains reserved while docked.
+        const observer = new IntersectionObserver(updateContents);
+        observer.observe(tableOfContents);
+        desktop.addEventListener("change", updateContents);
+        updateContents();
+
+        return () => {
+            observer.disconnect();
+            desktop.removeEventListener("change", updateContents);
+        };
     }, [slug]);
 
     if (!post) {
@@ -46,6 +69,23 @@ function BlogPostPage() {
         });
     }
 
+    function renderContentsLinks() {
+        return (
+            <>
+                <h2>In this article</h2>
+                <ol>
+                    {contents.map((section) => (
+                        <li key={section.id}>
+                            <button type="button" onClick={() => jumpToSection(section.id)}>
+                                {section.heading}
+                            </button>
+                        </li>
+                    ))}
+                </ol>
+            </>
+        );
+    }
+
     return (
         <div className="blog-shell">
             <Navbar />
@@ -74,17 +114,14 @@ function BlogPostPage() {
                     ) : null}
 
                     {contents.length > 0 && (
-                        <nav className="blog-toc" aria-label="Table of contents">
-                            <h2>In this article</h2>
-                            <ol>
-                                {contents.map((section) => (
-                                    <li key={section.id}>
-                                        <button type="button" onClick={() => jumpToSection(section.id)}>
-                                            {section.heading}
-                                        </button>
-                                    </li>
-                                ))}
-                            </ol>
+                        <nav ref={tableOfContentsRef} className={`blog-table-of-contents${showSideContents ? " blog-table-of-contents--away" : ""}`} aria-label="Table of contents">
+                            {renderContentsLinks()}
+                        </nav>
+                    )}
+
+                    {showSideContents && (
+                        <nav className="blog-table-of-contents blog-table-of-contents--side" aria-label="Table of contents">
+                            {renderContentsLinks()}
                         </nav>
                     )}
 

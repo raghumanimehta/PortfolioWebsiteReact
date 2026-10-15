@@ -365,7 +365,7 @@
     object-fit: cover;
 }
 
-.blog-toc {
+.blog-table-of-contents {
     margin-bottom: 2.5rem;
     padding: 1.25rem 1.5rem;
     border: 1px solid var(--border);
@@ -373,9 +373,9 @@
     background: var(--subtle);
 }
 
-.blog-toc h2 { margin: 0 0 0.75rem; font-size: 1.1rem; }
-.blog-toc ol { margin: 0; padding-left: 1.25rem; color: var(--muted); }
-.blog-toc button {
+.blog-table-of-contents h2 { margin: 0 0 0.75rem; font-size: 1.1rem; }
+.blog-table-of-contents ol { margin: 0; padding-left: 1.25rem; color: var(--muted); }
+.blog-table-of-contents button {
     padding: 0.5rem 0;
     border: 0;
     background: transparent;
@@ -384,8 +384,36 @@
     text-align: left;
     cursor: pointer;
 }
-.blog-toc button:hover { text-decoration: underline; }
-.blog-toc button:focus-visible { outline: 2px solid var(--accent); outline-offset: 3px; }
+.blog-table-of-contents button:hover { text-decoration: underline; }
+.blog-table-of-contents button:focus-visible { outline: 2px solid var(--accent); outline-offset: 3px; }
+.blog-table-of-contents--side { display: none; }
+
+@media (min-width: 1024px) {
+    .blog-page--post {
+        /* Keep a rail available without shifting the article when the list docks. */
+        width: min(48rem, calc(100% - 20rem));
+        margin-left: max(1.5rem, calc((100% - 66rem) / 2));
+        margin-right: auto;
+    }
+
+    .blog-table-of-contents--away { visibility: hidden; }
+
+    .blog-table-of-contents--side {
+        display: block;
+        position: fixed;
+        top: calc(var(--navbar-offset) + 2rem);
+        left: calc(max(1.5rem, (100% - 66rem) / 2) + min(48rem, 100% - 20rem) + 2rem);
+        width: 14rem;
+        box-sizing: border-box;
+        max-height: calc(100dvh - var(--navbar-offset) - 4rem);
+        overflow-y: auto;
+        overscroll-behavior: contain;
+        margin: 0;
+        padding: 1.25rem;
+        overflow-wrap: anywhere;
+    }
+}
+
 .blog-prose-section > h2 { scroll-margin-top: calc(var(--navbar-offset) + 2rem); }
 
 .blog-prose {
