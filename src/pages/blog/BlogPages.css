@@ -389,29 +389,38 @@
 .blog-table-of-contents--side { display: none; }
 
 @media (min-width: 1024px) {
-    .blog-page--post {
-        /* Keep a rail available without shifting the article when the list docks. */
-        width: min(48rem, calc(100% - 20rem));
-        margin-left: max(1.5rem, calc((100% - 66rem) / 2));
-        margin-right: auto;
-    }
-
     .blog-table-of-contents--away { visibility: hidden; }
 
     .blog-table-of-contents--side {
         display: block;
         position: fixed;
         top: calc(var(--navbar-offset) + 2rem);
-        left: calc(max(1.5rem, (100% - 66rem) / 2) + min(48rem, 100% - 20rem) + 2rem);
-        width: 14rem;
+        /* Fit inside the article's existing left margin; keep the article centered. */
+        left: max(1rem, calc((100% - 76rem) / 2));
+        width: min(12rem, calc((100% - 48rem) / 2 - 2rem));
         box-sizing: border-box;
         max-height: calc(100dvh - var(--navbar-offset) - 4rem);
         overflow-y: auto;
         overscroll-behavior: contain;
         margin: 0;
-        padding: 1.25rem;
+        padding: 0;
+        border: 0;
+        border-radius: 0;
+        background: transparent;
+        font-size: 0.8rem;
+        line-height: 1.5;
         overflow-wrap: anywhere;
     }
+
+    .blog-table-of-contents--side h2 { display: none; }
+    .blog-table-of-contents--side ol { list-style: none; padding: 0; }
+    .blog-table-of-contents--side li + li { margin-top: 0.35rem; }
+    .blog-table-of-contents--side button {
+        padding: 0.4rem 0.2rem;
+        color: var(--muted);
+    }
+    .blog-table-of-contents--side button:hover,
+    .blog-table-of-contents--side button:focus-visible { color: var(--ink); }
 }
 
 .blog-prose-section > h2 { scroll-margin-top: calc(var(--navbar-offset) + 2rem); }
